@@ -28,6 +28,7 @@ class vllmModels(LLM):
                  trust_remote_code: bool = True,
                  top_p: float = 0.95,
                  repetition_penalty: float = 1.0,
+                 dtype: str = "half", # Added this parameter for RTX 2080 Ti
                  **kwargs):
         """
         Initialize a vLLM-based model.
@@ -54,6 +55,11 @@ class vllmModels(LLM):
         
         self.trust_remote_code = trust_remote_code
         self.gpu_id = gpu_id
+        
+        # force float16 for older GPUs
+        if dtype == "bfloat16":
+            dtype = "half" # Added this parameter for RTX 2080 Ti
+        self.dtype = dtype
         
         # Initialize tokenizer 
         self.tokenizer = AutoTokenizer.from_pretrained(
@@ -82,6 +88,7 @@ class vllmModels(LLM):
                 enable_chunked_prefill=True,
                 max_num_batched_tokens=4096,
                 tokenizer_mode="slow",
+                dtype=self.dtype, # Added this parameter for RTX 2080 Ti
 
             )
             logger.info(f"Model '{self.model_name_full}' loaded successfully.")

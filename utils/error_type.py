@@ -153,9 +153,13 @@ def error_type_pipeline(input_json: str, output_json_dir: str, model_name: str) 
 
     df = pd.DataFrame(json.load(raw_json_file.open()))
 
-    # bookkeeping
-    model_name = df["Model Name"].iloc[0]
-    safe_model_name = model_name.replace("/", "_")
+    # # bookkeeping
+    # model_name = df["Model Name"].iloc[0]
+    # safe_model_name = model_name.replace("/", "_")
+    
+    # bookkeeping: model in the dataset (the generator being evaluated)
+    dataset_model_name = df["Model Name"].iloc[0]
+    safe_model_name = dataset_model_name.replace("/", "_")
 
     responses      = df["LLM Original Answer"].tolist()
     ground_truths  = df["Ground Truth Answer"].tolist()
@@ -164,13 +168,32 @@ def error_type_pipeline(input_json: str, output_json_dir: str, model_name: str) 
     notes          = df["Patient Note"].tolist()
     questions      = df["Question"].tolist()
 
-    deepseek = APIModel(
-        model_name,
-        # "OpenAI/gpt-4.1-mini",
-        rpm_limit=600,
-        tpm_limit=5_000_000,
-        temperature=0.1,
-    )
+    # deepseek = APIModel(
+    #     model_name,
+    #     # "OpenAI/gpt-4.1-mini",
+    #     rpm_limit=600,
+    #     tpm_limit=5_000_000,
+    #     temperature=0.1,
+    # )
+    
+    # Initialize evaluator WITHOUT using remote APIModel / DeepSeek.
+    # Accept a vllmModels instance or a string model name to load locally.
+    try:
+        from model import vllmModels
+    except Exception as e:
+        raise RuntimeError("vllmModels not available; install or provide an evaluator instance") from e
+
+    evaluator = None
+    # If caller passed an LLM instance (vllmModels), use it directly.
+    if not isinstance(model_name, str) and hasattr(model_name, "generate"):
+        evaluator = model_name
+    else:
+        # model_name is a string (or None) -> instantiate local vllm model
+        local_name = model_name if isinstance(model_name, str) and model_name else "Qwen/Qwen2.5-3B-Instruct"
+        try:
+            evaluator = vllmModels(model_name=local_name)
+        except Exception as e:
+            raise RuntimeError(f"Failed to initialize local evaluator '{local_name}'. Pass a vllmModels instance.") from e
 
     # ---------- build prompts (functions defined elsewhere) -------------
     prompts_formula = build_formula_error_prompts(
@@ -262,7 +285,12 @@ def error_type_pipeline(input_json: str, output_json_dir: str, model_name: str) 
     _add("round",   prompts_round)
 
     # ---------- single generate ----------------------------------------
-    all_results = _parse_replies(deepseek.generate(prompts=all_prompts))
+    # all_results = _parse_replies(deepseek.generate(prompts=all_prompts))
+    
+    # Use the local evaluator instance provided/created above.
+    raw_outputs = evaluator.generate(prompts=all_prompts)
+    all_results = _parse_replies(raw_outputs)
+    
 
     def _slice(name: str) -> List[Dict[str, Any]]:
         a, b = slices[name]
