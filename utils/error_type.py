@@ -7,6 +7,7 @@ from model import APIModel
 import re
 import os
 import random
+import time
 
 
 # Re-usable system-message template
@@ -189,7 +190,8 @@ def error_type_pipeline(input_json: str, output_json_dir: str, model_name: str) 
         evaluator = model_name
     else:
         # model_name is a string (or None) -> instantiate local vllm model
-        local_name = model_name if isinstance(model_name, str) and model_name else "Qwen/Qwen2.5-3B-Instruct"
+        # local_name = model_name if isinstance(model_name, str) and model_name else "Qwen/Qwen2.5-3B-Instruct"
+        local_name = model_name if isinstance(model_name, str) and model_name else "Qwen/Qwen3-4B"
         try:
             evaluator = vllmModels(model_name=local_name)
         except Exception as e:
@@ -283,6 +285,8 @@ def error_type_pipeline(input_json: str, output_json_dir: str, model_name: str) 
     _add("adj",     prompts_adj)
     _add("arith",   prompts_arith)
     _add("round",   prompts_round)
+    
+    # print(f"Total prompts to process: {len(all_prompts)}")
 
     # ---------- single generate ----------------------------------------
     # all_results = _parse_replies(deepseek.generate(prompts=all_prompts))
@@ -291,7 +295,75 @@ def error_type_pipeline(input_json: str, output_json_dir: str, model_name: str) 
     raw_outputs = evaluator.generate(prompts=all_prompts)
     all_results = _parse_replies(raw_outputs)
     
+    # # ---------- CHUNKED GENERATION WITH RETRY --------------------------
+    # all_results = []
+    # failed_indices = []
 
+    # chunk_size = 1  # Small chunks for long medical notes
+    # max_retries = 3
+
+    # total_chunks = (len(all_prompts) + chunk_size - 1) // chunk_size
+    # print(f"Processing in {total_chunks} chunks of size {chunk_size}")
+
+    # for chunk_idx, start_idx in enumerate(range(0, len(all_prompts), chunk_size)):
+    #     chunk = all_prompts[start_idx : start_idx + chunk_size]
+    #     success = False
+    
+    #     for attempt in range(1, max_retries + 1):
+    #         try:
+    #             raw_outputs = evaluator.generate(prompts=chunk)
+    #             results = _parse_replies(raw_outputs)
+    #             all_results.extend(results)
+    #             success = True
+    #             print(f"Chunk {chunk_idx + 1}/{total_chunks} completed ({len(chunk)} prompts)")
+    #             break
+    #         except Exception as e:
+    #             wait = 2 ** (attempt - 1)
+    #             print(f"[warning] Chunk {chunk_idx + 1}/{total_chunks} attempt {attempt}/{max_retries} failed: {e}")
+    #             if attempt < max_retries:
+    #                 print(f"[warning] Retrying in {wait}s...")
+    #                 time.sleep(wait)
+    
+    #     if not success:
+    #         # Fallback: process one-by-one
+    #         print(f"[warning] Chunk {chunk_idx + 1}/{total_chunks} failed after {max_retries} attempts.")
+    #         print(f"[warning] Falling back to single-prompt mode for {len(chunk)} prompts...")
+        
+    #         for j, single_prompt in enumerate(chunk):
+    #             global_idx = start_idx + j
+    #             try:
+    #                 raw_single = evaluator.generate(prompts=[single_prompt])
+    #                 res = _parse_replies(raw_single)
+    #                 if res:
+    #                     all_results.extend(res)
+    #                 else:
+    #                     all_results.append({"error_present": "N/A", "explanation": "Evaluation failed"})
+    #                     failed_indices.append(global_idx)
+    #             except Exception as e2:
+    #                 print(f"[error] Single-prompt generation failed at index {global_idx}: {e2}")
+    #                 all_results.append({"error_present": "N/A", "explanation": f"Error: {str(e2)}"})
+    #                 failed_indices.append(global_idx)
+
+    # # Validate result count
+    # if len(all_results) != len(all_prompts):
+    #     print(f"[warning] Generated {len(all_results)} results for {len(all_prompts)} prompts")
+    #     while len(all_results) < len(all_prompts):
+    #         all_results.append({"error_present": "N/A", "explanation": "Missing result"})
+    #         failed_indices.append(len(all_results) - 1)
+    #     all_results = all_results[:len(all_prompts)]
+
+    # if failed_indices:
+    #     print(f"[warning] {len(failed_indices)} prompts had permanent failures")
+    #     print(f"[warning] Failed prompt indices: {failed_indices[:10]}..." if len(failed_indices) > 10 else f"[warning] Failed prompt indices: {failed_indices}")
+
+    # # Print summary statistics
+    # success_count = len(all_results) - len(failed_indices)
+    # success_rate = (success_count / len(all_prompts)) * 100 if all_prompts else 0
+    # print(f"Success rate: {success_count}/{len(all_prompts)} ({success_rate:.1f}%)")
+    
+    ##
+    
+    # ---------- slice results back into error-type blocks ---------------
     def _slice(name: str) -> List[Dict[str, Any]]:
         a, b = slices[name]
         return all_results[a:b]

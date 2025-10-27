@@ -20,7 +20,8 @@ from method.medRaC import MedRaC
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--generator", default="Qwen/Qwen2.5-7B-Instruct", help="Generator model name")
+    # p.add_argument("--generator", default="Qwen/Qwen2.5-7B-Instruct", help="Generator model name")
+    p.add_argument("--generator", default="Qwen/Qwen3-8B", help="Generator model name")
     p.add_argument("--test", action="store_true", help="Run fast test subset")
     args = p.parse_args()
 
@@ -29,10 +30,17 @@ def main():
     print(f"Generator model ({args.generator}) loaded successfully")
 
     # 2. Run chosen method to produce raw + eval jsons
-    method = Plain(
-        "cot",
-        [model],
-        [RegEvaluator()]  # reg_evaluator used only for compute_overall_accuracy_new later
+    # method = Plain(
+    #     "cot",
+    #     [model],
+    #     [RegEvaluator()] 
+    # )
+    
+    method = MedRaC(
+        llms=[model],              
+        evaluators=[RegEvaluator()],
+        model=model,
+        use_rag=False
     )
 
     raw = method.generate_raw(test=args.test)
@@ -42,7 +50,7 @@ def main():
     reg_evaluator = RegEvaluator()
     reg_evaluator.compute_overall_accuracy_new(input_file_path=eval_json, output_dir_path="stats")
 
-    print(f"[+] Generation finished. raw file: {raw}, eval file: {eval_json}")
+    print(f"Generation finished. raw file: {raw}, eval file: {eval_json}")
 
 if __name__ == "__main__":
     main()
