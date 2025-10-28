@@ -3,7 +3,7 @@ from pathlib import Path
 import json
 import pandas as pd
 from typing import Dict,Any, Optional,Union,List, Tuple
-from model import APIModel
+from model import APIModel, vllmModels
 import re
 import os
 import random
@@ -164,13 +164,7 @@ def error_type_pipeline(input_json: str, output_json_dir: str, model_name: str) 
     notes          = df["Patient Note"].tolist()
     questions      = df["Question"].tolist()
 
-    deepseek = APIModel(
-        model_name,
-        # "OpenAI/gpt-4.1-mini",
-        rpm_limit=600,
-        tpm_limit=5_000_000,
-        temperature=0.1,
-    )
+    model = vllmModels(model_name="Qwen/Qwen3-4B")
 
     # ---------- build prompts (functions defined elsewhere) -------------
     prompts_formula = build_formula_error_prompts(
@@ -262,7 +256,7 @@ def error_type_pipeline(input_json: str, output_json_dir: str, model_name: str) 
     _add("round",   prompts_round)
 
     # ---------- single generate ----------------------------------------
-    all_results = _parse_replies(deepseek.generate(prompts=all_prompts))
+    all_results = _parse_replies(model.generate(prompts=all_prompts))
 
     def _slice(name: str) -> List[Dict[str, Any]]:
         a, b = slices[name]
