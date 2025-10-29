@@ -164,7 +164,7 @@ def error_type_pipeline(input_json: str, output_json_dir: str, model_name: str) 
     notes          = df["Patient Note"].tolist()
     questions      = df["Question"].tolist()
 
-    model = vllmModels(model_name="Qwen/Qwen3-4B")
+    model = model_name
 
     # ---------- build prompts (functions defined elsewhere) -------------
     prompts_formula = build_formula_error_prompts(
@@ -322,7 +322,186 @@ def error_type_pipeline(input_json: str, output_json_dir: str, model_name: str) 
     print(f"[+] Finished – results written to: {out_file.resolve()}")
 
 
+def error_type_pipeline_opt(input_json: str, output_json_dir: str, model: Union[APIModel, vllmModels]) -> None:
+    """
+    Evaluate eight classes of error types for every row in `input_json`
+    and save the combined results under `output_json_dir`.
 
+    All prompts are concatenated and sent to the model once.  Returned
+    replies are partitioned back into per-error-type blocks.
+    """
+
+    raw_json_file = Path(input_json)
+    if not raw_json_file.exists():
+        raise FileNotFoundError(raw_json_file)
+
+    df = pd.DataFrame(json.load(raw_json_file.open()))
+
+    # bookkeeping
+    model_name = df["Model Name"].iloc[0]
+    safe_model_name = model_name.replace("/", "_")
+
+    responses      = df["LLM Original Answer"].tolist()
+    ground_truths  = df["Ground Truth Answer"].tolist()
+    calids         = df["Calculator ID"].astype(str).tolist()
+    extracted_vals = df["Relevant Entities"].tolist()
+    notes          = df["Patient Note"].tolist()
+    questions      = df["Question"].tolist()
+
+    # ---------- build prompts (functions defined elsewhere) -------------
+    prompts_formula = build_formula_error_prompts(
+        ground_truth_formulas=_get_formulas(
+            calids=calids, json_path="data/formula_new.json"
+        ),
+        answers=responses,
+    )
+
+    prompts_var = build_variable_extraction_error_prompts(
+        patient_notes=notes,
+        questions=questions,
+        ground_truth_Extracted_values=extracted_vals,
+        answers=responses,
+    )
+
+    skip_cmis_mask = df["Category"].isin(
+        ["lab test", "physical", "date", "dosage conversion"]
+    )
+    skip_units_mask = ~skip_cmis_mask
+
+    prompts_cmis, cmis_index = [], []
+    for i, (skip, n, q, gt, ans) in enumerate(
+        zip(skip_cmis_mask, notes, questions, ground_truths, responses)
+    ):
+        if skip:
+            continue
+        prompts_cmis.extend(
+            build_clinical_misinterpretation_prompts([n], [q], [gt], [ans])
+        )
+        cmis_index.append(i)
+
+    prompts_miss_var = build_missing_variable_prompts(
+        patient_notes=notes,
+        questions=questions,
+        ground_truth_Extracted_values=extracted_vals,
+        answers=responses,
+    )
+
+    prompts_unit, unit_index = [], []
+    for i, (skip, n, q, gt, ans) in enumerate(
+        zip(skip_units_mask, notes, questions, ground_truths, responses)
+    ):
+        if skip:
+            continue
+        prompts_unit.extend(
+            build_unit_conversion_error_prompts([n], [q], [gt], [ans])
+        )
+        unit_index.append(i)
+
+    prompts_adj, adj_index = [], []
+    for i, (skip, n, q, gt, ans) in enumerate(
+        zip(skip_units_mask, notes, questions, ground_truths, responses)
+    ):
+        if skip:
+            continue
+        prompts_adj.extend(
+            build_adjustment_coefficient_error_prompts([n], [q], [gt], [ans])
+        )
+        adj_index.append(i)
+
+    prompts_arith = build_arithmetic_error_prompts(responses)
+
+    prompts_round, round_index = [], []
+    for i, (skip, gt, ans) in enumerate(zip(skip_units_mask, ground_truths, responses)):
+        if skip:
+            continue
+        prompts_round.extend(build_rounding_error_prompts([gt], [ans]))
+        round_index.append(i)
+
+    # ---------- concat & remember slices --------------------------------
+    all_prompts: List[Tuple[str, str]] = []
+    slices: Dict[str, Tuple[int, int]] = {}
+    start = 0
+
+    def _add(name: str, block: List[Tuple[str, str]]) -> None:
+        nonlocal start
+        slices[name] = (start, start + len(block))
+        all_prompts.extend(block)
+        start += len(block)
+
+    _add("formula", prompts_formula)
+    _add("var",     prompts_var)
+    _add("cmis",    prompts_cmis)
+    _add("miss",    prompts_miss_var)
+    _add("unit",    prompts_unit)
+    _add("adj",     prompts_adj)
+    _add("arith",   prompts_arith)
+    _add("round",   prompts_round)
+
+    # ---------- single generate ----------------------------------------
+    all_results = _parse_replies(model.generate(prompts=all_prompts))
+
+    def _slice(name: str) -> List[Dict[str, Any]]:
+        a, b = slices[name]
+        return all_results[a:b]
+
+    formula_res  = _slice("formula")
+    var_res      = _slice("var")
+    cmis_res     = _slice("cmis")
+    miss_res     = _slice("miss")
+    unit_res     = _slice("unit")
+    adj_res      = _slice("adj")
+    arith_res    = _slice("arith")
+    round_res    = _slice("round")
+
+    # ---------- attach back to df --------------------------------------
+    col_pairs = {
+        "formula":  (formula_res,  None),
+        "var":      (var_res,      None),
+        "cmis":     (cmis_res,     cmis_index),
+        "miss":     (miss_res,     None),
+        "unit":     (unit_res,     unit_index),
+        "adj":      (adj_res,      adj_index),
+        "arith":    (arith_res,    None),
+        "round":    (round_res,    round_index),
+    }
+
+
+    error_name_map = {
+        "formula": "Formula Error",
+        "var":     "Incorrect Variable Extraction",
+        "cmis":    "Clinical Misinterpretation (Rule-based Only)",
+        "miss":    "Missing Variables",
+        "unit":    "Unit Conversion Error",
+        "adj":     "Missing or Misused Demographic/Adjustment Coefficients",
+        "arith":   "Arithmetic Errors",
+        "round":   "Rounding / Precision Errors",
+    }
+
+    n_rows = len(df)
+    for key, (block, idx) in col_pairs.items():
+        col_base = error_name_map[key]
+        err_col = f"{col_base}"
+        exp_col = f"{col_base} Explanation"
+
+        errs = ["N/A"] * n_rows
+        exps = [""]   * n_rows
+        tgt  = idx if idx is not None else range(n_rows)
+        for i, row_idx in enumerate(tgt):
+            errs[row_idx] = block[i]["error_present"]
+            exps[row_idx] = block[i]["explanation"]
+
+        df[err_col] = errs
+        df[exp_col] = exps
+
+    # ---------- save ----------------------------------------------------
+    out_dir  = Path(output_json_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_file = out_dir / f"{safe_model_name}_error_eval.json"
+    out_file.write_text(
+        json.dumps(df.to_dict(orient="records"), ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    print(f"[+] Finished – results written to: {out_file.resolve()}")
 
 def build_formula_error_prompts(
     ground_truth_formulas: List[str],

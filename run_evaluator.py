@@ -22,7 +22,7 @@ from method.twoAgent          import TwoAgent
 from method.rag               import RAG
 from method.medRaC     import MedRaC
 
-from utils.error_type import error_type_pipeline
+from utils.error_type import error_type_pipeline, error_type_pipeline_opt
 
 
 # Note: by default, we set evaluator & model to gpt-4o-mini, in case deepseek API is not accessible. In our paper, we use deepseek-chat as LLM_Evaluator, and deepseek-reasoner to analyze error types. If you want to reproduce our results/stats, please use the two models
@@ -46,9 +46,12 @@ from utils.error_type import error_type_pipeline
 
 
 # If you want to use open-source models, uncomment this line and replace the gpt in method with model
-model = vllmModels(model_name="Qwen/Qwen3-8B")
-# eva_model = vllmModels(model_name="Qwen/Qwen3-4B")
-# llm_evaluator = LLM_Evaluator(eva_model)
+# model = vllmModels(model_name="Qwen/Qwen3-8B")
+eva_model = vllmModels(model_name="Qwen/Qwen3-4B")
+# eva_model = vllmModels(model_name="Qwen/Qwen3-1.7B")
+# eva_model = vllmModels(model_name="Qwen/Qwen3-0.6B")
+# eva_model = vllmModels(model_name="Qwen/Qwen3-14B")
+llm_evaluator = LLM_Evaluator(eva_model)
 reg_evaluator = RegEvaluator()
 
 
@@ -86,27 +89,34 @@ reg_evaluator = RegEvaluator()
 
 
 # -------- Our MedRaC Method Example -----------
-# Step 1: Generate raw outputs
-method = MedRaC(
-    llms=[model],
-    evaluators=[reg_evaluator],
-    model=model,
+# method = MedRaC(
+#     llms=[model],
+#     evaluators=[reg_evaluator],
+#     model=model,
+#     use_rag=False
+# )
+# raw = method.generate_raw(test=True)
+# eval_json = method.evaluate(raw_json_file=raw)
+# reg_evaluator.compute_overall_accuracy_new(input_file_path= eval_json, output_dir_path="stats")
+# -------- Our MedRaC Method Example -----------
+
+method_eval = MedRaC(
+    llms=[eva_model],
+    evaluators=[reg_evaluator, llm_evaluator], 
+    model=eva_model,
     use_rag=False
 )
-raw = method.generate_raw(test=False) 
-# Outputs: raw_output/code/Qwen_Qwen3-8B_modular_cot_codeQwen3-8B_raw.json
 
 # Step 2: Evaluate
-eval_json = method.evaluate(raw_json_file=raw)
+raw_json = "/home/sreevidyabol_umass_edu/EMNLP-2025-MedRaC/raw_output/code/Qwen_Qwen3-8B_modular_cot_codeQwen3-8B_raw.json"
+eval_json_llm = method_eval.evaluate(raw_json_file=raw_json)
 # Outputs: eval_output/code/Qwen_Qwen3-8B_modular_cot_codeQwen3-8B_eval.json
 
 # Step 3: Compute statistics (generates the results file)
-reg_evaluator.compute_overall_accuracy_new(input_file_path= eval_json, output_dir_path="stats")
+reg_evaluator.compute_overall_accuracy_new(input_file_path= eval_json_llm, output_dir_path="stats")
 # Outputs: stats/results_Qwen_Qwen3-8B_modular_cot_codeQwen3-8B_eval.json
-# -------- Our MedRaC Method Example -----------
-
-
 
 # ------------ Error Type Analysis -------------
-# error_type_pipeline(input_json=eval_json, output_json_dir="ErrorTypes", model_name = eva_model)
+error_type_pipeline_opt(input_json=eval_json_llm, output_json_dir="ErrorTypes", model = eva_model)
+# Outputs: ErrorTypes/Qwen_Qwen3-8B_error_eval.json
 

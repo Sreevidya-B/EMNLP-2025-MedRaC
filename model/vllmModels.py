@@ -78,8 +78,7 @@ class vllmModels(LLM):
                 trust_remote_code=self.trust_remote_code,
                 max_model_len=self.max_tokens,
                 seed=self.seed,
-                # gpu_memory_utilization=0.96,
-                gpu_memory_utilization=0.45, # Adjusted for testing
+                gpu_memory_utilization=0.96,
                 enable_chunked_prefill=True,
                 max_num_batched_tokens=4096,
                 tokenizer_mode="slow",
