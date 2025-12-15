@@ -13,6 +13,7 @@ export OPENAI_API_KEY="your key"
 from __future__ import annotations
 
 import os,json
+import time
 from typing import List, Tuple
 
 from langchain.schema import Document
@@ -27,7 +28,7 @@ class RAG:
     def __init__(
         self,
         doc_path: str = "data/web_formula.txt",
-        embedding_model: str = "text-embedding-ada-002", # text-embedding-ada-002, text-embedding-3-small, text-embedding-3-large
+        embedding_model: str = "text-embedding-3-small", # text-embedding-ada-002, text-embedding-3-small, text-embedding-3-large
         embeddings_dir: str = "data/one_shot_finalized_explanation_formulas_embeddings",
         normalize_embeddings: bool = True,
     ) -> None:
@@ -42,7 +43,9 @@ class RAG:
         normalize_embeddings : bool
             Whether to L2-normalize vectors before similarity search (recommended).
         """
-        load_dotenv()
+        # load_dotenv()
+        load_dotenv(dotenv_path='/work/pi_hongyu_umass_edu/sreevidyabol_umass_edu/MedRaC/EMNLP-2025-MedRaC/.env')
+        
         self.api_key = os.getenv("OPENAI_API_KEY")
 
         # Try loading a precomputed FAISS index
@@ -136,13 +139,14 @@ class RAG:
         List[Tuple[str, float]]
             Each tuple is (block_text, similarity_score). Higher score == closer.
         """
+        
         if k < 1:
             raise ValueError("k must be >= 1")
         query = self.trim_before_phrase(query)
         # print(f"Query: {query}")
         # similarity_search_with_score returns List[Tuple[Document, score]]
         hits = self.vectorstore.similarity_search_with_relevance_scores(query, k=k)
-
+        
         # Convert to (content, score) pairs. LangChain returns higher == more similar.
         return [(doc.page_content, float(score)) for doc, score in hits]
 
@@ -234,6 +238,18 @@ class RAG:
 # if __name__ == "__main__":
 #     rag = RAG(doc_path="formula.txt")
 #     question = "How do I compute Cockcroft-Gault clearance?"
+#     top_k = 5
+#     results = rag.retrieve(question, k=top_k)
+#     print(f"\nTop {len(results)} formula blocks for: “{question}”\n" + "-" * 60)
+#     for rank, (text, score) in enumerate(results, start=1):
+#         print(f"{rank:>2}. ({score:.4f})  {text}\n")
+
+# -------------------------------------------------------------------------
+# Usage example (uncomment to run)
+# -------------------------------------------------------------------------
+# if __name__ == "__main__":
+#     rag = RAG(doc_path="web_formula.txt")
+#     question = "Based on the patient's last menstrual period, what is the patient's estimated gestational age? Your answer should be a tuple, specifying the number of weeks and days (i.e. (4 weeks, 3 days), (0 weeks, 5 days), (1 week, 5 days), (8 weeks, 0 days))."
 #     top_k = 5
 #     results = rag.retrieve(question, k=top_k)
 #     print(f"\nTop {len(results)} formula blocks for: “{question}”\n" + "-" * 60)

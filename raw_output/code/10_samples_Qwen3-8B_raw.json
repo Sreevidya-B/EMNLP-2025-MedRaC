@@ -1,0 +1,408 @@
+[
+    
+    {
+        "Model Name": "Qwen/Qwen3-8B",
+        "Row Number": "22",
+        "Calculator Name": "CKD-EPI Equations for Glomerular Filtration Rate",
+        "Calculator ID": "3",
+        "Category": "lab test",
+        "Note ID": "pmc-8173432-1",
+        "Patient Note": "The patient, a 22-year-old woman of Chinese Han ethnicity, was admitted for severe edema of the facial region and two lower limbs over 3 mo.\nThe patient developed edema of the facial region and two lower limbs 3 mo ago without obvious cause. Her symptoms were mild in the morning and severe in the afternoon. At the same time, she experienced migratory pain of the small joints, which improved after movement, as well as decreased urinary volume, weakness, and poor appetite.\nThe patient had a free previous medical history.\nThe patient’s temperature was 36.6 °C, heart rate was 78 bpm, respiratory rate was 20 breaths per minute, blood pressure was 122/80 mmHg, and oxygen saturation in room air was 98%. The patient was conscious and she complied with the physician's physical examination. Her heart, lungs, and abdomen examinations showed no significant abnormalities, no percussion pain in her kidney area, and severe pitting edema in both lower extremities.\nRoutine urine examination revealed the following: Proteinuria +++, hematuria ++; phase of urinary red blood cells: Deformed erythrocytosis 70%, urine protein quantitation 4.2 g/24 h; urea nitrogen 15.7 mmol/L, and serum creatinine 141.4 μmol/L. Routine blood test results were as follows: Hemoglobin 92 g/L, white blood cells 4.8 × 109/L, blood platelets 218 × 109/L, antinuclear antibody 1:3200, cytoplasmic granules 1:1000, ds-DNA antibody > 1:3200, C3 0.56 g/L, and C4 0.22 g/L.\nPathological results showed 35 glomeruli in the punctured renal tissue, including one with global sclerosis, two with ischemic sclerosis, and the remaining glomeruli with diffuse proliferation of mesangial cells and endothelial cells, accompanied by segmental dual-track formation of a thickened basement membrane, segmental Meyer's loop, leukocyte infiltration, and segmental microthrombus formation. Fuchsinophilic protein deposition can be found at the mesangial region and subepithelial region, including fibrin crescent formation of one cell. The kidney tubular epithelium exhibited granular and vacuolar degeneration, as well as multifocal atrophy. The renal interstitium showed multishaped lymphocyte and monocyte infiltration, together with mild thickening of the arteriole wall. Paraffin immunofluorescence revealed: Immunoglobulin (Ig) G (++), IgA (++), IgM (++), C3 (+), fall risk assessment (+), C1q (++), and granular deposition along the mesangial region and capillary wall. Combined with clinical findings, this condition was considered diffuse proliferative lupus nephritis, with IV-G (A), AI = 11, and CI = 5. AI was scored as follows: Cellular proliferation (2 points), leukocyte infiltration (1 point), nuclear fragmentation/fibrinoid necrosis (2 points), cell crescent (0 points), Meyer's loop/thrombus (2 points), and interstitial monocyte infiltration (2 points). CI was scored as follows: Sclerosis (2 points), fibrin crescent (0 points), tubular atrophy (2 points), and interstitial fibrosis (2 points) (Figure ).\nAfter consideration of the renal puncture results, oral administration of prednisone was begun at 50 mg/d, and meanwhile, cyclophosphamide was applied through intravenous injection at a dosage of 1.0 g monthly, which lasted for a consecutive 6 mo and was stopped after an accumulative use of 6 g. The serum creatinine fluctuated within an approximate range of 120-160 μmol/L, and blood albumin fluctuated from approximately 29-35 g/L. Then, the patient began to take AZA 50 mg/d as maintenance treatment but experienced extensive alopecia and shedding of pubic hair on the 13th day after oral administration. Pharyngalgia appeared on the 14th day, and fever with a body temperature up to 42 ℃ occurred on the 15th day. The patient came to the hospital for the second time. Physical examination revealed the following: Body temperature, 39.4 ℃; pulse, 92 times/min; breath rate, 22 times/min; blood pressure, 182/100 mmHg. The patient exhibited clear consciousness and emotional distress; she presented scattered chromatosis on her skin, and a rash was found on the inner surface of the bilateral thighs. Pharyngeal congestion was noted, and the breath sounds of the two lungs were clear. The heart rate was 92 times/min. The abdomen was flat, soft, and free from tenderness or rebound tenderness, and there was no liver or spleen involvement. Routine blood work showed the following: Hemoglobin 72 g/L, white blood cell count 1.25 × 109/L, blood platelet count 13 × 109/L, lymphocyte ratio 95.7%, neutrophil ratio 1.6%, and neutrophil count 0.01 × 109/L (Figure ). The results of the bone marrow biopsy were as follows: Myelodysplasia low in the myelogram and focal hyperplasia in bone marrow tissue with active hyperplasia in some areas (Figure ). Routine urinalysis results were as follows: Protein (+), occult blood 2+, and Epstein-Barr virus (EBV) positivity (3.58 × 104). TPMT genotyping testing (four single nucleotide polymorphisms, single base extension method) revealed the following: TPMT 3C gene polymorphism (719A>G) (this site is the most common gene mutation site in Asians) test result: A/A; TPMT 3B gene polymorphism (460G>A) test result: G/G; TPMT 2 gene polymorphism (238G>C) test result: G/G; no abnormity was found in any of the above results.",
+        "Question": "Using the 2021 CKD-EPI Creatinine equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment.",
+        "Ground Truth Answer": "47.039",
+        "Ground Truth Explanation": "The formula for computing GFR is 142 x (Scr/A)**B x 0.9938**age x (gender_coeffcient), where the ** indicates an exponent operation, Scr is the concentration of serum creatinine in mg/dL and gender_coefficient is 1.012 if the patient is female, else the coeffient is 1. The coefficients A and B are dependent on the patient's gender and the patient's creatinine concentration.\nThe patient is 22 years old. The patient's gender is Female, and so the patient's gender coefficient is 1.012.\nThe concentration of Serum Creatinine is 141.4 µmol/L. We need to convert the concentration to mg/dL. Let's first convert the mass of Serum Creatinine from µmol to mg. The mass of Serum Creatinine is 141.4 µmol. To convert 141.4 µmol of Serum Creatinine to mol, multiply by the conversion factor 1e-06, giving us 141.4 µmol Serum Creatinine * 1e-06 mol/µmol = 0.00014 mol Serum Creatinine. To convert from mol Serum Creatinine to grams, multiply by the molar mass 113.12 g/mol, which will give 0.00014 mol Serum Creatinine * 113.12 g/mol = 0.01584 g Serum Creatinine. To convert 0.01584 g of Serum Creatinine to mg, multiply by the conversion factor 1000.0, giving us 0.01584 g Serum Creatinine * 1000.0 mg/g = 15.84 mg Serum Creatinine. The current volume unit is L and the target volume unit is dL. The conversion factor is 10.0 dL for every unit of L. Our next step will be to divide the mass by the volume conversion factor of 10.0 to get the final concentration in terms of mg/dL. This will result to 15.84 mg Serum Creatinine/10.0 dL = 1.584 mg Serum Creatinine/dL. The concentration value of 141.4 µmol Serum Creatinine/L converts to 1.584 mg Serum Creatinine/dL. Because the patient's gender is female and the creatinine concentration is greater than or equal to 0.7 mg/dL, A = 0.7 and B = -1.2.\nPlugging in these values, we get 142 * (1.584/0.7)**-1.2 * 0.9938**22 * 1.012 = 47.039.\nHence, the GFR value is 47.039 ml/min/1.73 m².",
+        "Relevant Entities": {
+            "age": [
+                22,
+                "years"
+            ],
+            "creatinine": [
+                141.4,
+                "µmol/L"
+            ],
+            "sex": "Female"
+        },
+        "Upper Limit": "49.39095",
+        "Lower Limit": "44.68705",
+        "LLM Original Answer": {
+            "formula": "Addition of the selected points:\n+------------------------------+----------+---------+\n| Parameter                    | 0 points | 1 point |\n+------------------------------+----------+---------+\n| Altered mental statusGCS<15  | No       | Yes     |\n+------------------------------+----------+---------+\n| Respiratory rate ≥22         | No       | Yes     |\n+------------------------------+----------+---------+\n| Systolic blood pressure ≤100 | No       | Yes     |\n+------------------------------+----------+---------+",
+            "extracted_values": {
+                "extracted_values_reason": "The GFR calculation using the 2021 CKD-EPI equation requires serum creatinine (in mg/dL), age, sex, and race. The patient's initial serum creatinine was 141.4 μmol/L (converted to 1.6 mg/dL), age 22, female, and Chinese Han ethnicity (non-Black, race coefficient 1.018).",
+                "extracted_values": {
+                    "serum_creatinine": "141.4 μmol/L",
+                    "age": "22",
+                    "sex": "female",
+                    "race": "Chinese Han"
+                }
+            },
+            "calculation": "```python\n# constants\nserum_creatinine = 141.4 * 0.011314  # μmol/L to mg/dL\nage = 22\nsex = \"female\"\nrace_coeff = 1.018  # Chinese Han (non-Black)\n\n# computation\nif serum_creatinine <= 0.7:\n    result = 144 * (serum_creatinine / 0.7) ** (-0.329) * race_coeff\nelse:\n    result = 144 * (serum_creatinine / 0.7) ** (-1.209) * race_coeff\n```",
+            "answer": "53.965786339507474"
+        },
+        "Input Tokens": 1714,
+        "Output Tokens": 136
+    },
+    {
+        "Model Name": "Qwen/Qwen3-8B",
+        "Row Number": "23",
+        "Calculator Name": "CKD-EPI Equations for Glomerular Filtration Rate",
+        "Calculator ID": "3",
+        "Category": "lab test",
+        "Note ID": "pmc-8521725-1",
+        "Patient Note": "A 51-year-old woman from South America with a past medical history of anemia, hypertension, kidney stones, and COVID-19, 4 months prior (a positive antigen test without symptoms) was evaluated in the emergency department after being found to have calcium of 15.7 mg/dL in clinic. The patient endorsed fatigue, night sweats, lightheadedness, nausea, right flank pain with radiation to the right lower quadrant, urinary frequency, diffuse bone pain, constipation for the past 1 month, and weight loss of about 15 lb over the past 6 months. The patient denied any chest pain, shortness of breath, abdominal pain, or dysuria. Physical exam was benign except for severe tenderness to palpation over the buttocks and hips.\nLaboratories on admission were significant for calcium 15.9 mg/dL (reference range: 8.6-10.2 mg/dL), creatinine 1.33 mg/dL (reference range: 0.5-1.20 mg/dL), 1-25 dihydroxyvitamin D 116.0 pg/mL (reference range: 19.9-79.3), and 25 hydroxyvitamin D 21.0 ng/mL (reference range: >30 ng/mL). Parathyroid hormone was low (15.3 pg/mL, reference range: 15.0-65.0), and alkaline phosphatase was within normal limits. Of note, ACE was found to be elevated to 139 U/L (reference range: 14-82 U/L).\nThe patient was hydrated and treated with calcitonin, decreasing her calcium to 11.3 mg/dL and her creatinine to 0.98 mg/dL. On further interviewing of this patient (admission Day 4), it was discovered that she had silicone injections in her buttocks approximately 23 years ago by a local doctor. Her calcium continued to be >11 mg/dL despite in vitro fertilization (IVF) and calcitonin. Computed tomography scan of the abdomen and pelvis showed no evidence of malignancy; however, it was significant for extensive bilateral granulomatous calcifications of the patient’s buttocks. The patient was started on steroid treatment with prednisone 60 mg daily. Ultimately, she was discharged after 5 days (once her calcium decreased to 10.6 mg/dL) and was given a 2-week course of prednisone; on return to clinic 3 weeks later (1 week after completion of her steroid taper), her calcium remained at 10.9 mg/dL. Four months later, this patient’s calcium was found to be only mildly elevated to 10.6 mg/dL ().",
+        "Question": "Using the 2021 CKD-EPI Creatinine equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment.",
+        "Ground Truth Answer": "48.44101",
+        "Ground Truth Explanation": "The formula for computing GFR is 142 x (Scr/A)**B x 0.9938**age x (gender_coeffcient), where the ** indicates an exponent operation, Scr is the concentration of serum creatinine in mg/dL and gender_coefficient is 1.012 if the patient is female, else the coeffient is 1. The coefficients A and B are dependent on the patient's gender and the patient's creatinine concentration.\nThe patient is 51 years old. The patient's gender is Female, and so the patient's gender coefficient is 1.012.\nThe concentration of Serum Creatinine is 1.33 mg/dL. Because the patient's gender is female and the creatinine concentration is greater than or equal to 0.7 mg/dL, A = 0.7 and B = -1.2.\nPlugging in these values, we get 142 * (1.33/0.7)**-1.2 * 0.9938**51 * 1.012 = 48.44101.\nHence, the GFR value is 48.44101 ml/min/1.73 m².",
+        "Relevant Entities": {
+            "age": [
+                51,
+                "years"
+            ],
+            "creatinine": [
+                1.33,
+                "mg/dL"
+            ],
+            "sex": "Female"
+        },
+        "Upper Limit": "50.86306",
+        "Lower Limit": "46.01896",
+        "LLM Original Answer": {
+            "formula": "Addition of the selected points:\n+------------------------------+----------+---------+\n| Parameter                    | 0 points | 1 point |\n+------------------------------+----------+---------+\n| Altered mental statusGCS<15  | No       | Yes     |\n+------------------------------+----------+---------+\n| Respiratory rate ≥22         | No       | Yes     |\n+------------------------------+----------+---------+\n| Systolic blood pressure ≤100 | No       | Yes     |\n+------------------------------+----------+---------+",
+            "extracted_values": {
+                "extracted_values_reason": "The CKD-EPI equation requires serum creatinine, age, sex, and race. The patient's creatinine at admission was 1.33 mg/dL, age is 51, and she is female. Race is unspecified, but the formula may assume a default (e.g., non-Hispanic White). The provided table with points for altered mental status, respiratory rate, and systolic BP is unrelated to the CKD-EPI equation and is likely a distractor.",
+                "extracted_values": {
+                    "creatinine": "1.33 mg/dL",
+                    "age": "51",
+                    "sex": "female"
+                }
+            },
+            "calculation": "```python\n# constants\ncreatinine = 1.33\nage = 51\n\n# computation\nresult = 169 * (creatinine / 0.9) ** -0.329 * (0.783 * 0.993) ** age\n```",
+            "answer": "0.00039659463832633667"
+        },
+        "Input Tokens": 958,
+        "Output Tokens": 139
+    },
+    {
+        "Model Name": "Qwen/Qwen3-8B",
+        "Row Number": "24",
+        "Calculator Name": "CKD-EPI Equations for Glomerular Filtration Rate",
+        "Calculator ID": "3",
+        "Category": "lab test",
+        "Note ID": "pmc-3101734-1",
+        "Patient Note": "A 17-year-old male presented with a few days history of severe headache, visual disturbances, and a few episodes of vomiting. There was no history of fever, altered consciousness, seizures, or upper or lower limb weakness. The past medical history was unremarkable. At the time of examination, his BP was 240/130 mm Hg. The fundus examination revealed bilateral papilledema with grade 4 hypertensive changes. The neurological examination revealed normal grade 5 power in all four limbs with normally elicited deep tendon reflexes. The sensory examination was unremarkable with normal flexor plantar response bilaterally. Serum electrolytes were normal; kidney function tests were deranged (blood urea 86 mg/dL, serum creatinine 3.7 mg/dL). A renal biopsy revealed features of IgA nephropathy. MRI of the brain revealed a hyperintense signal of medulla and cervical cord on T2 and FLAIR images (Figures ); small hyperintense foci were also noted in the parieto-occipital regions and deep cerebellar white matter. The lesions were also hyperintense on diffusion-weighted imaging (because of T2 shine-through); there was no evidence of restricted diffusion on apparent diffusion co-efficient maps. As there was no clinical or lab evidence to support the diagnosis of encephalomyelitis or acute disseminating encephalomyelitis (ADEM) as suggested initially by the radiologist, an atypical variant of PRES was considered as the most plausible diagnostic possibility. Further investigations including CSF studies were not considered necessary in view of the strongly suggestive clinical and imaging features. The patient rapidly improved with antihypertensive treatment and a repeat MRI done 1 month afterward showed resolution of the earlier imaging findings.",
+        "Question": "Using the 2021 CKD-EPI Creatinine equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment.",
+        "Ground Truth Answer": "23.42179",
+        "Ground Truth Explanation": "The formula for computing GFR is 142 x (Scr/A)**B x 0.9938**age x (gender_coeffcient), where the ** indicates an exponent operation, Scr is the concentration of serum creatinine in mg/dL and gender_coefficient is 1.012 if the patient is female, else the coeffient is 1. The coefficients A and B are dependent on the patient's gender and the patient's creatinine concentration.\nThe patient is 17 years old. The patient's gender is Male, and so the patient's gender coefficient is 1.0.\nThe concentration of Serum Creatinine is 3.7 mg/dL. Because the patient's gender is male and the creatinine concentration is greater than or equal to 0.9 mg/dL, A = 0.9 and B = -1.2.\nPlugging in these values, we get 142 * (3.7/0.9)**-1.2 * 0.9938**17 * 1.0 = 23.42179.\nHence, the GFR value is 23.42179 ml/min/1.73 m².",
+        "Relevant Entities": {
+            "sex": "Male",
+            "age": [
+                17,
+                "years"
+            ],
+            "creatinine": [
+                3.7,
+                "mg/dL"
+            ]
+        },
+        "Upper Limit": "24.59288",
+        "Lower Limit": "22.2507",
+        "LLM Original Answer": {
+            "formula": "Addition of the selected points:\n+------------------------------+----------+---------+\n| Parameter                    | 0 points | 1 point |\n+------------------------------+----------+---------+\n| Altered mental statusGCS<15  | No       | Yes     |\n+------------------------------+----------+---------+\n| Respiratory rate ≥22         | No       | Yes     |\n+------------------------------+----------+---------+\n| Systolic blood pressure ≤100 | No       | Yes     |\n+------------------------------+----------+---------+",
+            "extracted_values": {
+                "extracted_values_reason": "The CKD-EPI equation requires serum creatinine, age, sex, and race. The patient's serum creatinine is explicitly stated as 3.7 mg/dL. Age is 17 years, and the patient is male. Race is not specified, so it is omitted. These values are used directly in the formula.",
+                "extracted_values": {
+                    "serum_creatinine": "3.7 mg/dL",
+                    "age": "17 years",
+                    "sex": "male"
+                }
+            },
+            "calculation": "```python\n# constants\nserum_creatinine = 3.7  # mg/dL\nage = 17              # years\nsex = \"male\"\n\n# computation\nif sex == \"male\":\n    k = 0.95\n    a = -0.174\nelse:\n    k = 0.7\n    a = -0.182\n\nresult = 144 * (serum_creatinine / k) ** a * (0.9863 ** age)\n```",
+            "answer": "89.90272642773188"
+        },
+        "Input Tokens": 730,
+        "Output Tokens": 109
+    },
+    {
+        "Model Name": "Qwen/Qwen3-8B",
+        "Row Number": "25",
+        "Calculator Name": "CKD-EPI Equations for Glomerular Filtration Rate",
+        "Calculator ID": "3",
+        "Category": "lab test",
+        "Note ID": "pmc-5120253-5",
+        "Patient Note": "A 40-year-old female with a 5-year history of opium abuse presented with 6-month history of fatigue, low back pain, and menometrorrhagia. She had no previous history of any specific medical condition. Physical examination was normal and no abdominal tenderness, organ enlargement, or palpable masses were identified.\nLaboratory tests revealed an elevated ESR (70 mm/h) and anemia with hemoglobin of 10.2. Urine analysis was normal. Serum creatinine was elevated (2.5). The tumor markers (CEA, CA125, LDH, αFP, and βHCG) were within normal limits. The results of the other biochemical screenings and electrolyte tests were all within normal range.\nUltrasonography revealed bilateral moderate hydronephrosis without ureteral dilation. On abdominal and pelvic CT, fibrotic tissue was observed surrounding the abdominal aorta and common iliac arteries at the level of the sacral promontory. A double-J stent was inserted and the patient began taking an NSAID (ibuprofen 400 mg q 8 h) and prednisolone (1 mg/kg/day) for approximately 6 weeks. She was also advised to stop using opium. After 9 months, the NSAID and prednisolone were tapered off, and improvements in the patient’s clinical manifestation and radiologic and laboratory findings were observed.",
+        "Question": "Using the 2021 CKD-EPI Creatinine equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment.",
+        "Ground Truth Answer": "24.32306",
+        "Ground Truth Explanation": "The formula for computing GFR is 142 x (Scr/A)**B x 0.9938**age x (gender_coeffcient), where the ** indicates an exponent operation, Scr is the concentration of serum creatinine in mg/dL and gender_coefficient is 1.012 if the patient is female, else the coeffient is 1. The coefficients A and B are dependent on the patient's gender and the patient's creatinine concentration.\nThe patient is 40 years old. The patient's gender is Female, and so the patient's gender coefficient is 1.012.\nThe concentration of Serum Creatinine is 2.5 mg/dL. Because the patient's gender is female and the creatinine concentration is greater than or equal to 0.7 mg/dL, A = 0.7 and B = -1.2.\nPlugging in these values, we get 142 * (2.5/0.7)**-1.2 * 0.9938**40 * 1.012 = 24.32306.\nHence, the GFR value is 24.32306 ml/min/1.73 m².",
+        "Relevant Entities": {
+            "age": [
+                40,
+                "years"
+            ],
+            "creatinine": [
+                2.5,
+                "mg/dL"
+            ],
+            "sex": "Female"
+        },
+        "Upper Limit": "25.53921",
+        "Lower Limit": "23.10691",
+        "LLM Original Answer": {
+            "formula": "Addition of the selected points:\n+------------------------------+----------+---------+\n| Parameter                    | 0 points | 1 point |\n+------------------------------+----------+---------+\n| Altered mental statusGCS<15  | No       | Yes     |\n+------------------------------+----------+---------+\n| Respiratory rate ≥22         | No       | Yes     |\n+------------------------------+----------+---------+\n| Systolic blood pressure ≤100 | No       | Yes     |\n+------------------------------+----------+---------+",
+            "extracted_values": {
+                "extracted_values_reason": "The serum creatinine value (2.5 mg/dL) is explicitly stated in the note under 'Serum creatinine was elevated (2.5)'. The patient's age (40 years) and sex (female) are directly mentioned in the first sentence. The 2021 CKD-EPI equation requires these parameters for calculation.",
+                "extracted_values": {
+                    "serum_creatinine": "2.5 mg/dL",
+                    "age": "40 years",
+                    "sex": "female"
+                }
+            },
+            "calculation": "```python\n# constants\nserum_creatinine = 2.5\nage = 40\nsex = 'female'\n\n# calculation\nif sex == 'female':\n    k = 0.7\n    a = -0.283\n    multiplier = 0.739\nelse:\n    k = 0.9\n    a = -0.261\n    multiplier = 0.899\n\nresult = 169 * (serum_creatinine / k) ** a * (1.212 ** age) * multiplier\n```",
+            "answer": "190625.79112878637"
+        },
+        "Input Tokens": 655,
+        "Output Tokens": 113
+    },
+    {
+        "Model Name": "Qwen/Qwen3-8B",
+        "Row Number": "26",
+        "Calculator Name": "CKD-EPI Equations for Glomerular Filtration Rate",
+        "Calculator ID": "3",
+        "Category": "lab test",
+        "Note ID": "pmc-6854950-1",
+        "Patient Note": "A 35-year-old Japanese man with a history of renal disease presented to a dermatology clinic with sudden onset of a purpuric rash on his lower extremities () and was diagnosed with anaphylactoid purpura. Although he was asymptomatic, proteinuria, and haematuria were detected during a screening test when he was 20 years old, and he was diagnosed with IgAN based on renal biopsy. Histopathological examination of renal biopsy specimens revealed mild mesangial proliferation (). Immunohistochemical examination revealed mesangial IgA (), IgG and C3 () depositions, and he was treated with corticosteroids. Thereafter, he moved to our city and continued to be treated here. Corticosteroids treatment was continued for 7 years and was subsequently tapered.\nPhysical examination following the appearance of purpura revealed purpuric rash without any pitting oedema on his legs. Blood pressure was 147/78 mmHg. Urinalysis showed (+++) urinary protein, no urinary glucose, 6–10 red blood cells/high power field, urinary protein was 1.4 g/g creatinine (Cr). A peripheral blood smear showed a white blood cell (WBC) count of 12,100 cells/mm3, red blood cell of 5.16 million cells/mm3, and platelets 192,000 cells/mm3. Serum haemoglobin was 16.6 g/dL and haematocrit 45.4%. Blood chemistry showed total serum protein 7.2 g/dL, serum albumin 4.2 g/dL, serum sodium 141 mEq/L, potassium 4.3 mEq/L, chloride 105 mEq/L, serum Cr 1.35 mg/dL, serum aspartate aminotransferase 21 IU/L, serum alanine aminotransferase 28 IU/L, blood glucose 96 mg/dL, glycosylated haemoglobin 4.8%, and serum C-reactive protein (CRP) 1.57 mg/dL. Immunological examination showed an antistreptolysin O (ASO) titer 24 IU/mL, IgG 1095 mg/dL, IgA 315 mg/dL, IgM 133 mg/dL, C3 164 mg/dL, C4 35 mg/dL, and CH50 67.0 U/mL. A month before the appearance of purpura urinalysis revealed (++) protein, absence of haematuria, urinary protein level of 0.73 g/gCr, and serum Cr level of 1.10 mg/dL. Two months thereafter, purpura subsided, and his urinary protein level and serum Cr level were restored to the former levels. Skin biopsy was not performed because his purpura was typical for anaphylactoid purpura.",
+        "Question": "Using the 2021 CKD-EPI Creatinine equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment.",
+        "Ground Truth Answer": "70.21721",
+        "Ground Truth Explanation": "The formula for computing GFR is 142 x (Scr/A)**B x 0.9938**age x (gender_coeffcient), where the ** indicates an exponent operation, Scr is the concentration of serum creatinine in mg/dL and gender_coefficient is 1.012 if the patient is female, else the coeffient is 1. The coefficients A and B are dependent on the patient's gender and the patient's creatinine concentration.\nThe patient is 35 years old. The patient's gender is Male, and so the patient's gender coefficient is 1.0.\nThe concentration of Serum Creatinine is 1.35 mg/dL. Because the patient's gender is male and the creatinine concentration is greater than or equal to 0.9 mg/dL, A = 0.9 and B = -1.2.\nPlugging in these values, we get 142 * (1.35/0.9)**-1.2 * 0.9938**35 * 1.0 = 70.21721.\nHence, the GFR value is 70.21721 ml/min/1.73 m².",
+        "Relevant Entities": {
+            "age": [
+                35,
+                "years"
+            ],
+            "creatinine": [
+                1.35,
+                "mg/dL"
+            ],
+            "sex": "Male"
+        },
+        "Upper Limit": "73.72807",
+        "Lower Limit": "66.70635",
+        "LLM Original Answer": {
+            "formula": "Addition of the selected points:\n+------------------------------+----------+---------+\n| Parameter                    | 0 points | 1 point |\n+------------------------------+----------+---------+\n| Altered mental statusGCS<15  | No       | Yes     |\n+------------------------------+----------+---------+\n| Respiratory rate ≥22         | No       | Yes     |\n+------------------------------+----------+---------+\n| Systolic blood pressure ≤100 | No       | Yes     |\n+------------------------------+----------+---------+",
+            "extracted_values": {
+                "extracted_values_reason": "The question requires the 2021 CKD-EPI equation, which uses serum creatinine, age, sex, and race. The patient's first admission to the hospital prior to treatment refers to the current admission for purpura, as the note does not specify earlier hospital admissions. Serum creatinine at admission was 1.35 mg/dL. Age is 35 years, sex is male, and race is Japanese (non-Black).",
+                "extracted_values": {
+                    "serum_creatinine": "1.35 mg/dL",
+                    "age": "35 years",
+                    "sex": "male",
+                    "race": "Japanese"
+                }
+            },
+            "calculation": "```python\n# constants\nserum_creatinine = 1.35  # mg/dL\nage = 35                # years\nsex_multiplier = 1.0    # male\nrace_multiplier = 1.0   # non-Black\n\n# computation\nresult = 141 * (serum_creatinine / 0.7) ** -0.329 * (0.9569 ** age) * sex_multiplier * race_multiplier\n```",
+            "answer": "24.305578843022413"
+        },
+        "Input Tokens": 1002,
+        "Output Tokens": 143
+    },
+    
+    {
+        "Model Name": "Qwen/Qwen3-8B",
+        "Row Number": "28",
+        "Calculator Name": "CKD-EPI Equations for Glomerular Filtration Rate",
+        "Calculator ID": "3",
+        "Category": "lab test",
+        "Note ID": "pmc-8454243-1",
+        "Patient Note": "A 70-year-old man was referred to our institution because of abdominal distention and vomiting that started 2 days prior to admission. The patient was undergoing hemodialysis for chronic nephritis, and his past history included hypertension, chronic heart failure, and arterial sclerosis. He was never a smoker and had no history of abdominal surgery or nonsteroidal anti-inflammatory drug use. Upon hospitalization, the patient's blood pressure was 104/57 mm Hg, heart rate was 78 beats/min, and body temperature was 36.5°C. Physical examination revealed mild tenderness and swelling in the lower abdomen; the bowel sounds were enhanced. No purpura was found, which is characteristic of Henoch-Schönlein purpura.\nA blood test performed on admission revealed mild anemia (hemoglobin 11.2 g/dL), hypoalbuminemia (2.6 g/dL), mildly elevated C-reactive protein (3.24 mg/dL), and elevated serum creatinine (5.24 mg/dL) levels. The stool culture test results were negative. Tuberculosis and anisakiasis were ruled out by interferon-gamma releasing assays and anisakis antibody tests, respectively.\nAbdominal radiography in the standing position revealed dilatation of the small intestine and air-fluid levels in the intestine (shown in Fig. ); plain computed tomography (CT) showed a stenotic site with wall thickening and dilatation of the small intestine on the oral side from the stenosis (shown in Fig. ). After admission, we inserted an ileus tube to ameliorate the elevated intraluminal pressure. Contrast medium from the tube showed a stricture at the end of the ileum (shown in Fig. ). We conducted TUS using Sonazoid TM and elastography techniques, which demonstrated a thickened wall and unclear stratification of the intestinal wall in the lower right abdomen (shown in Fig. ). The length of stricture was 70 mm, and the minimum lumen diameter was 5 mm. The small intestine on the oral side of the lesion was markedly dilated. Contrast-enhanced ultrasonography showed sufficient mucosal blood flow in the stenotic lesion (Fig. ). Ultrasound elastography revealed lower elasticity of the intestinal lesion site than the elasticity of other intact parts of the small intestine that did not show wall thickening or stenosis (strain ratio [local deformation ratio under slight pressure]: 2.52) (Fig. ). Based on these findings, the patient was clinically diagnosed with IE. Conservative therapies including fasting and total parenteral nutrition were initiated after the diagnosis; however, the patient's condition did not improve.\nSurgery was performed, and the stenotic lesion was surgically resected. Macroscopic findings of the resected ileum demonstrated circumferential ulceration and stricture. Microscopic findings demonstrated penetration of the surrounding tissue and infiltration of inflammatory cells mainly in the mucosal layer. The venules in the submucosal layer were occluded by hyalinization (shown in Fig. ). Two days after the operation, the patient started oral intake without the recurrence of IE and was discharged from our hospital 1 month later. There was no relapse when the patient was last assessed 1 year postoperatively.",
+        "Question": "Using the 2021 CKD-EPI Creatinine equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment.",
+        "Ground Truth Answer": "11.09459",
+        "Ground Truth Explanation": "The formula for computing GFR is 142 x (Scr/A)**B x 0.9938**age x (gender_coeffcient), where the ** indicates an exponent operation, Scr is the concentration of serum creatinine in mg/dL and gender_coefficient is 1.012 if the patient is female, else the coeffient is 1. The coefficients A and B are dependent on the patient's gender and the patient's creatinine concentration.\nThe patient is 70 years old. The patient's gender is Male, and so the patient's gender coefficient is 1.0.\nThe concentration of Serum Creatinine is 5.24 mg/dL. Because the patient's gender is male and the creatinine concentration is greater than or equal to 0.9 mg/dL, A = 0.9 and B = -1.2.\nPlugging in these values, we get 142 * (5.24/0.9)**-1.2 * 0.9938**70 * 1.0 = 11.09459.\nHence, the GFR value is 11.09459 ml/min/1.73 m².",
+        "Relevant Entities": {
+            "sex": "Male",
+            "age": [
+                70,
+                "years"
+            ],
+            "creatinine": [
+                5.24,
+                "mg/dL"
+            ]
+        },
+        "Upper Limit": "11.64932",
+        "Lower Limit": "10.53986",
+        "LLM Original Answer": {
+            "formula": "Addition of the selected points:\n+------------------------------+----------+---------+\n| Parameter                    | 0 points | 1 point |\n+------------------------------+----------+---------+\n| Altered mental statusGCS<15  | No       | Yes     |\n+------------------------------+----------+---------+\n| Respiratory rate ≥22         | No       | Yes     |\n+------------------------------+----------+---------+\n| Systolic blood pressure ≤100 | No       | Yes     |\n+------------------------------+----------+---------+",
+            "extracted_values": {
+                "extracted_values_reason": "The 2021 CKD-EPI Creatinine equation requires serum creatinine, age, sex, and race. The patient's serum creatinine (5.24 mg/dL) and age (70 years) are explicitly stated. The patient is male (implied by 'man' in the note), and race is unspecified, so we assume the default adjustment for race (White) as per standard practice. The formula provided in the question is unrelated to the CKD-EPI equation and is not used here.",
+                "extracted_values": {
+                    "serum_creatinine": "5.24 mg/dL",
+                    "age": "70 years",
+                    "sex": "male"
+                }
+            },
+            "calculation": "```python\n# constants\nage = 65\nweight = 70          # kg\ngender_coeff = 0.85\nScr = 1.3            # mg/dL\nresult = ((140 - age) * weight * gender_coeff) / (72 * Scr)\n```",
+            "answer": "47.676282051282044"
+        },
+        "Input Tokens": 1048,
+        "Output Tokens": 150
+    },
+    {
+        "Model Name": "Qwen/Qwen3-8B",
+        "Row Number": "29",
+        "Calculator Name": "CKD-EPI Equations for Glomerular Filtration Rate",
+        "Calculator ID": "3",
+        "Category": "lab test",
+        "Note ID": "pmc-6988719-1",
+        "Patient Note": "A 53-year-old Hispanic male with poorly controlled diabetes, hemodialysis for two years, and coronary artery bypass grafting 10 months previously, developed redness pain and swelling of the medial aspect of both legs two days prior to admission. This occurred in a symmetrical fashion and extended from the upper one-third of the calf to the mid-thigh. The patient had difficulty walking secondary to pain. He had undergone saphenous vein harvesting from these areas for his coronary artery bypass graft (CABG). The patient denied trauma to the lower extremities, fevers, chills, and rigors. His medications include paricalcitol, sevelamer, calcium acetate, aspirin, amiodarone, amlodepine, simvastatin, and humilin 70/30.\nPhysical examination showed extensive erythema involving the inner aspect of the thighs down to the medial upper one-third of the calf on both sides (Figures -). Skin lesions were warm and very tender to touch, but there was no induration. Initial laboratory examination revealed white count 9,500 with 70% neutrophils, erythrocyte sedimentation rate of 87 mm/hr, C-reactive protein 11.6 mg/dl, blood urea nitrogen (BUN) 57 mg/dl, creatinine 11.3 mg/dl, calcium 9.8 mg/dl, albumin 3 gm/dl, prothrombin time (PT) 11.3 sec, international normalized ratio (INR) 1.1, and activated partial thromboplastin time (aPTT) 30.3 sec.\nHe was treated with intravenous vancomycin and ceftriaxone. By day three, moderate induration had developed, there were no signs of improvement, and the intensity of pain worsened. CT scan of both lower extremities was not consistent with necrotizing fasciitis and repeat labs showed a white count 15,700, with 75% neutrophils, and C-reactive protein 48 mg/dl, calcium 9.76 mg/dl, phosphorus 12.5 mg/dl (first time obtained). He required a patient-controlled analgesia (PCA) pump to control his pain with little improvement. His antibiotics were changed to linezolid, tobramycin, and levofloxacin. On the fourth day, there was an increased induration of the thighs with rock hard consistency of the tissue. Skin biopsy was performed showing deposition of calcium in the small blood vessels of the skin, areas of fat necrosis with foamy histiocytes, and neutrophils consistent with calciphylaxis (Figures -). Parathyroid hormone level (PTH) was 628 pg/ml.\nHe received daily dialysis with intravenous sodium thiosulfate given post dialysis for three days. His calcium-containing phosphate binders and paricalcitol were stopped; dosage was increased for sevelamer and lanthanum carbonate, another phosphate binder, was added to lower phosphorus levels. The patient’s pain, redness, swelling and induration improved over the next three days and his calcium was 8.5 gm/dl and phosphorus 7.3 mg/dl at the time of discharge.",
+        "Question": "Using the 2021 CKD-EPI Creatinine equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment.",
+        "Ground Truth Answer": "4.90379",
+        "Ground Truth Explanation": "The formula for computing GFR is 142 x (Scr/A)**B x 0.9938**age x (gender_coeffcient), where the ** indicates an exponent operation, Scr is the concentration of serum creatinine in mg/dL and gender_coefficient is 1.012 if the patient is female, else the coeffient is 1. The coefficients A and B are dependent on the patient's gender and the patient's creatinine concentration.\nThe patient is 53 years old. The patient's gender is Male, and so the patient's gender coefficient is 1.0.\nThe concentration of Serum Creatinine is 11.3 mg/dL. Because the patient's gender is male and the creatinine concentration is greater than or equal to 0.9 mg/dL, A = 0.9 and B = -1.2.\nPlugging in these values, we get 142 * (11.3/0.9)**-1.2 * 0.9938**53 * 1.0 = 4.90379.\nHence, the GFR value is 4.90379 ml/min/1.73 m².",
+        "Relevant Entities": {
+            "sex": "Male",
+            "age": [
+                53,
+                "years"
+            ],
+            "creatinine": [
+                11.3,
+                "mg/dL"
+            ]
+        },
+        "Upper Limit": "5.14898",
+        "Lower Limit": "4.6586",
+        "LLM Original Answer": {
+            "formula": "Addition of the selected points:\n+------------------------------+----------+---------+\n| Parameter                    | 0 points | 1 point |\n+------------------------------+----------+---------+\n| Altered mental statusGCS<15  | No       | Yes     |\n+------------------------------+----------+---------+\n| Respiratory rate ≥22         | No       | Yes     |\n+------------------------------+----------+---------+\n| Systolic blood pressure ≤100 | No       | Yes     |\n+------------------------------+----------+---------+",
+            "extracted_values": {
+                "extracted_values_reason": "The 2021 CKD-EPI Creatinine equation requires serum creatinine, age, sex, and race. The patient's creatinine (11.3 mg/dl) and age (53 years) are explicitly stated. The patient is male, and while race (Hispanic) is noted, the formula does not specify adjustments for race unless provided. The question specifies using values at admission prior to treatment, so the initial creatinine and age are used.",
+                "extracted_values": {
+                    "serum_creatinine": "11.3 mg/dl",
+                    "age": "53 years",
+                    "sex": "male"
+                }
+            },
+            "calculation": "```python\n# constants\nserum_creatinine = 11.3\nage = 53\nsex = 'male'\n\n# computation\nk = 0.7\nif serum_creatinine < k:\n    result = 141 * (serum_creatinine / k) ** (-0.329) * (0.957 ** age)\nelse:\n    result = 141 * (serum_creatinine / k) ** (-1.209) * (0.957 ** age)\n```",
+            "answer": "0.47544852787253733"
+        },
+        "Input Tokens": 1063,
+        "Output Tokens": 139
+    },
+    {
+        "Model Name": "Qwen/Qwen3-8B",
+        "Row Number": "30",
+        "Calculator Name": "CKD-EPI Equations for Glomerular Filtration Rate",
+        "Calculator ID": "3",
+        "Category": "lab test",
+        "Note ID": "pmc-2275218-1",
+        "Patient Note": "A 35 year old female with SCD, presented with pedal and periorbital edema, distension of abdomen, decreased urine output and dyspnoea on exertion since 1 month. On examination, she was pale, with pulse rate of 100/minute, normal temperature, and blood pressure was 160/100 mm Hg. Her abdomen was distended due to moderate ascites however there was no organomegaly/scars. Cardio-respiratory and neurological examination was unremarkable. Ultrasonography showed right kidney, 10.9 × 6.0 cm, left kidney of 11.4 × 5.8 cm, with increased echogenicity and maintained cortico-medullary differentiation. Moderate ascites was present.\nOn investigations, urine albumin was 500 mg/24 hours, microscopy showed 30–40 pus cells and 3–5 granular casts/high power field, urine culture was sterile, serum creatinine, 7.0 mg/dL, serum proteins, 4.5 gm/dL; serum albumin, 1.8 gm%, serum bilirubin was 0.5 mg/dL, serum alanine amino transferase was 16 units/L, random blood sugar was 87 mg/dL, serum uric acid was 7.5 mg/dL, serum sodium was 134 meq/L and serum potassium, 5.5 meq/L and positive sickling test was noted at 24 hours. Her hemoglobin was 7.1 gm/dL; total leucocyte count was 7,700/cmm with differential count showing neutrophils, 76%, lymphocytes, 20% and eosinophils and monocytes, each, 2%. Peripheral smear showed few crenated and sickled cells with mild hypochromia and anisopoikylocytosis.\nShe was dialyzed and 2 units of packed cells were transfused. Renal biopsy was performed and after paraffin embedding, 3 micrometer sections were taken and stained using Hematoxylin and eosin, Periodic Acid Schiff, Jone's silver methaneamine and Gomori's trichrome stains. Indirect immunofluorescence studies were performed using anti-human IgG, IgM, IgA, C1q, C3, albumin and fibrinogen anti-sera (DAKO, USA). Histopathology revealed one core with 13 glomeruli. All of them were moderately enlarged in size and 11 had exuberant and occasionally circumferential cellular (rarely fibrocellular) crescents occupying 70–90% urinary spaces, occasionally replacing capillary tufts and shrinking or pushing the capillary tufts towards vascular poles (Figure ). Capillary tufts had fairly open lumina lined by membranes with occasional reduplication, thickening/rupture. There was uniform moderate mesangial prominence. Capillaries and crescents were infiltrated by few sickle shaped, dysmorphic RBCs, platelet/fibrin thrombi. Afferent and efferent arterioles were filled with sickled RBCs. Bowman capsules were segmentally thickened and occasionally ruptured evoking periglomerular leucocytic reaction. Tubules were moderately degenerated and filled with cellular casts and rarely RBCs. Focal atrophy was also evident. Interstitium was moderately prominent for focal fibrosis and overlying focal mononuclear cellular infiltration with admixed neutrophils. Peri-tubular capillaries were dilated and filled with sickled RBCs (Figure ). At least one medium caliber and two small caliber arteries showed lumina filled with trapped dysmorphic RBCs.\nImmunofluorescence studies showed fine granular fluorescence (+2) across 60–80% mesangial regions and adjacent capillaries of all glomeruli on staining with anti-human C3 and (trace/+1) with anti-human IgG, C1q and fibrinogen antisera (Figure ). Subsequently she was investigated for vasculitis and lupus nephritis. Indirect immunofluorescence and ELISA revealed anti-nuclear antibodies, (normal index: <1, test: 8.5), anti-dsDNA antibodies were >200 IU/mL (normal <25 IU/mL, Orgentec, Germany). Anti-neutrophil cytoplasmic antibodies were absent. Final diagnosis was made as SCN with DPLN, ISN/RPS class IV-G (A).\nHemoglobin variant study using High Performance Liquid Chromatography (d-10, Biorad, USA) was performed 5 days after transfusion which showed HbSA of 6.9% (Figure ).\nShe was treated with Methylprednisolone 500 mg, intravenously for 3 days and Cyclophosphamide, 500 mg intravenously immediately and dose was repeated after 21 days. Then she was switched over to oral Prednisolone, 40 mg/day. Hemodialysis was done on alternate days for 21 days. At follow-up of 2 months, she is on maintenance dialysis with urine output of less than 400 ml/day.",
+        "Question": "Using the 2021 CKD-EPI Creatinine equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment.",
+        "Ground Truth Answer": "7.29346",
+        "Ground Truth Explanation": "The formula for computing GFR is 142 x (Scr/A)**B x 0.9938**age x (gender_coeffcient), where the ** indicates an exponent operation, Scr is the concentration of serum creatinine in mg/dL and gender_coefficient is 1.012 if the patient is female, else the coeffient is 1. The coefficients A and B are dependent on the patient's gender and the patient's creatinine concentration.\nThe patient is 35 years old. The patient's gender is Female, and so the patient's gender coefficient is 1.012.\nThe concentration of Serum Creatinine is 7.0 mg/dL. Because the patient's gender is female and the creatinine concentration is greater than or equal to 0.7 mg/dL, A = 0.7 and B = -1.2.\nPlugging in these values, we get 142 * (7.0/0.7)**-1.2 * 0.9938**35 * 1.012 = 7.29346.\nHence, the GFR value is 7.29346 ml/min/1.73 m².",
+        "Relevant Entities": {
+            "sex": "Female",
+            "age": [
+                35,
+                "years"
+            ],
+            "creatinine": [
+                7.0,
+                "mg/dL"
+            ]
+        },
+        "Upper Limit": "7.65813",
+        "Lower Limit": "6.92879",
+        "LLM Original Answer": {
+            "formula": "Addition of the selected points:\n+------------------------------+----------+---------+\n| Parameter                    | 0 points | 1 point |\n+------------------------------+----------+---------+\n| Altered mental statusGCS<15  | No       | Yes     |\n+------------------------------+----------+---------+\n| Respiratory rate ≥22         | No       | Yes     |\n+------------------------------+----------+---------+\n| Systolic blood pressure ≤100 | No       | Yes     |\n+------------------------------+----------+---------+",
+            "extracted_values": {
+                "extracted_values_reason": "The CKD-EPI equation requires serum creatinine, age, sex, and race. The patient's serum creatinine is 7.0 mg/dL, age is 35 years, sex is female, and race is assumed Black due to SCD context. The formula calculates GFR using these values with race adjustment.",
+                "extracted_values": {
+                    "serum_creatinine": "7.0 mg/dL",
+                    "age": "35 years",
+                    "sex": "female",
+                    "race": "Black"
+                }
+            },
+            "calculation": "```python\n# constants\nage = 65\nweight = 70\ngender_coeff = 0.85\nScr = 1.3\n\n# computation\nresult = ((140 - age) * weight * gender_coeff) / (72 * Scr)\n```",
+            "answer": "47.676282051282044"
+        },
+        "Input Tokens": 1492,
+        "Output Tokens": 114
+    },
+    {
+        "Model Name": "Qwen/Qwen3-8B",
+        "Row Number": "31",
+        "Calculator Name": "CKD-EPI Equations for Glomerular Filtration Rate",
+        "Calculator ID": "3",
+        "Category": "lab test",
+        "Note ID": "pmc-3927191-1",
+        "Patient Note": "A 28-year-old male patient presented with the complaints of generalized weakness and exertional dyspnea of 1 month duration. He did not give a history of frothing of urine, pedal edema, hematuria or breathlessness in the past. Clinically he appeared pale and dehydrated, blood pressure was 120/80 mmHg and systemic examination was unremarkable. Investigations revealed that he had normocytic normochromic anemia (hemoglobin: 7.5 g/dl), thrombocytopenia (80,000/cumm) with normal leukocyte count (7400/cumm), moderate renal failure (serum creatinine: 3 mg/dl), normal liver function tests (serum albumin: 4.92 g/dl and serum globulin: 2.4 g/dl), and normal serum electrolytes, serum calcium: 10 mg/dl, serum phosphorous: 4.7 mg/dl and elevated serum uric acid (9.5 mg/dl). Urine examination showed proteinuria 1+ on dipstick, 24 h urine protein was 8504 mg. With a high index of suspicion for a tubular proteinuria, along with a hypo proliferative marrow (reticulocyte productive index: 0.7%), the possibility of plasma cell dyscrasia was considered. Serum protein electrophoresis and urine Bence Jones protein were negative. Serum immunofixation using capillary method showed immunoglobulin G, kappa monoclonal immunoglobulin. Urine electrophoresis showed M band and serum free light chain (SFLC) assay showed a significantly elevated kappa level (4383 mg/l; normal range: 3.3-19.4) with a suppressed lambda level (4.5 mg/l; normal range: 5.7-26.3), kappa/lamba ratio was 974 (normal range in renal failure: 0.37-3.1). Skeletal survey did not show any evidence of lytic lesions. BM biopsy done showed 79% of plasma cells with plasmablastic morphology [], which were CD138 positive with kappa restriction. These atypical cells showed Ki 67% of 20-25% with very few cells positive for terminal deoxynucleotidyl transferase and CD79a was negative, which suggested plasmablastic myeloma phenotype. Fluorescence in-situ hybridization on BM was negative for del13q14.3, t (11;14), t (4;14), t (14;16). Renal function deteriorated rapidly; he underwent a renal biopsy, which showed pale eosinophilic, Schiff poor fractured casts in the renal tubules [], which were kappa restricted.\nHe was started on chemotherapy, with each 21 days cycle consisting of parenteral bortezomib (1.3 mg/m2/dose on days 1, 4, 8 and 11) and oral dexamethasone (40 mg/day on days 1-4, 9-12). After the first cycle of bortezomib and dexamethasone, his renal functions started to improve. He was started on lenalidomide 25 mg/day at cycle 2 (when renal function started to improve) along with bortezomib and dexamethasone. With this intensive chemotherapy, his renal functions improved further (serum creatinine 1.77 mg/dl at 6 weeks).\nPatient was reevaluated after four cycles of chemotherapy with BM examination and free light chain assay. BM showed less than 1% of plasma cells and serum free kappa light chain was 67.69 mg/l. Serum creatinine improved to 1.4 mg/dl at 6 months and he was planned for autologous peripheral blood stem cell transplantation (APBSCT). However, due to technical delay, he was given additional two cycles of CyBorD chemotherapy (weekly cyclophosphamide, bortezomib and dexamethasone). Patient then underwent APBSCT with Melphalan conditioning 140 mg/m2. Post-transplant patient achieved neutrophil and platelet engraftment on day +9 and did not encounter any infections. Day +100 evaluation showed serum creatinine to be 1.3 mg/dl and he was in stringent complete remission (negative serum and urine immunofixation and normal SFLC ratio).",
+        "Question": "Using the 2021 CKD-EPI Creatinine equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment.",
+        "Ground Truth Answer": "28.13233",
+        "Ground Truth Explanation": "The formula for computing GFR is 142 x (Scr/A)**B x 0.9938**age x (gender_coeffcient), where the ** indicates an exponent operation, Scr is the concentration of serum creatinine in mg/dL and gender_coefficient is 1.012 if the patient is female, else the coeffient is 1. The coefficients A and B are dependent on the patient's gender and the patient's creatinine concentration.\nThe patient is 28 years old. The patient's gender is Male, and so the patient's gender coefficient is 1.0.\nThe concentration of Serum Creatinine is 3.0 mg/dL. Because the patient's gender is male and the creatinine concentration is greater than or equal to 0.9 mg/dL, A = 0.9 and B = -1.2.\nPlugging in these values, we get 142 * (3.0/0.9)**-1.2 * 0.9938**28 * 1.0 = 28.13233.\nHence, the GFR value is 28.13233 ml/min/1.73 m².",
+        "Relevant Entities": {
+            "sex": "Male",
+            "age": [
+                28,
+                "years"
+            ],
+            "creatinine": [
+                3.0,
+                "mg/dL"
+            ]
+        },
+        "Upper Limit": "29.53895",
+        "Lower Limit": "26.72571",
+        "LLM Original Answer": {
+            "formula": "Addition of the selected points:\n+------------------------------+----------+---------+\n| Parameter                    | 0 points | 1 point |\n+------------------------------+----------+---------+\n| Altered mental statusGCS<15  | No       | Yes     |\n+------------------------------+----------+---------+\n| Respiratory rate ≥22         | No       | Yes     |\n+------------------------------+----------+---------+\n| Systolic blood pressure ≤100 | No       | Yes     |\n+------------------------------+----------+---------+",
+            "extracted_values": {
+                "extracted_values_reason": "The 2021 CKD-EPI equation requires serum creatinine, age, sex, and race. The patient's initial creatinine (3 mg/dl) is explicitly stated. Age is 28 years, sex is male, and race is unspecified but assumed non-Black as no mention is made. These values are used to calculate GFR using the CKD-EPI formula for males (non-Black).",
+                "extracted_values": {
+                    "serum_creatinine": "3 mg/dl",
+                    "age": "28",
+                    "sex": "male",
+                    "race": "non-Black"
+                }
+            },
+            "calculation": "```python\n# constants\nserum_creatinine = 3\nage = 28\nsex = 'male'\nrace = 'non-Black'\n\n# computation\nresult = 144 * (serum_creatinine / 0.7) ** (-0.329) * (0.9863 ** age)\n```",
+            "answer": "60.628912995295295"
+        },
+        "Input Tokens": 1336,
+        "Output Tokens": 134
+    },
+    {
+        "Model Name": "Qwen/Qwen3-8B",
+        "Row Number": "32",
+        "Calculator Name": "CKD-EPI Equations for Glomerular Filtration Rate",
+        "Calculator ID": "3",
+        "Category": "lab test",
+        "Note ID": "pmc-4381148-1",
+        "Patient Note": "A 65-year-old woman was referred for colonoscopy because of abdominal pain and hematochezia. She had a history of end-stage renal disease, hypertension, and diabetes mellitus. She underwent hemodialysis three times per week. The patient's hemodynamic parameters were stable. On physical examination, she was found to have right abdominal pain and tenderness. Laboratory tests revealed a white blood cell (WBC) count of 13,900/mm2, a hemoglobin level of 9.4 g/dL, and a platelet count of 228,000/mm2. Serum biochemistry showed creatinine level, 6.6 mg/dL; albumin level, 3.0 g/dL; alanine aminotransferase level, 36 IU/L; aspartate aminotransferase level, 38 IU/L; bilirubin level, 1.2 mg/dL; and alkaline phosphatase level, 198 IU/L with normal electrolytes. Serum was negative for antinuclear antibody and HIV antibody. Anemia was associated with chronic renal failure. On stool examination, negative results were obtained for stool WBC, stool culture, and Clostridium difficile toxin A/B. The electrocardiogram showed normal results. An esophagogastroduodenoscopy revealed no evidence of bleeding. Colonoscopy was performed after standard bowel preparation and under sedation with 3 mg of midazolam. The colonoscopic findings showed diffuse bowel wall edema. Upon examination of the distal transverse colon, we found several deep linear red mucosal breaks resembling scratches ().\nIn the ascending colon, dark purple edematous mucosa and necrotic epithelial lesions were found (). Cecal intubation was not performed because of severe ischemic changes with necrosis. The remaining colorectal mucosa was grossly normal. Computed tomography (CT) scan showed moderate-to-severe diffuse bowel wall thickening and focally decreased mucosal enhancement in the right colon. The patient was diagnosed with ischemic colitis based on colonoscopic and CT findings, and clinical manifestations. The patient thus received supportive care. Intravenous fluids were administered to treat dehydration, and total parenteral nutrition with prophylactic antibiotics was provided. The patient was placed on bowel rest until the symptoms resolved. After 3 weeks, follow-up colonoscopy and CT were performed. On follow-up colonoscopy, the previous severe ischemic colonoscopic findings had disappeared, and ischemic mucosal change showed further resolution (). No further mucosal tearing was observed during the follow-up colonoscopy. On CT scans, improvement in ischemic colitis was noted. The patient no longer complained of abdominal pain or hematochezia.",
+        "Question": "Using the 2021 CKD-EPI Creatinine equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment.",
+        "Ground Truth Answer": "6.49484",
+        "Ground Truth Explanation": "The formula for computing GFR is 142 x (Scr/A)**B x 0.9938**age x (gender_coeffcient), where the ** indicates an exponent operation, Scr is the concentration of serum creatinine in mg/dL and gender_coefficient is 1.012 if the patient is female, else the coeffient is 1. The coefficients A and B are dependent on the patient's gender and the patient's creatinine concentration.\nThe patient is 65 years old. The patient's gender is Female, and so the patient's gender coefficient is 1.012.\nThe concentration of Serum Creatinine is 6.6 mg/dL. Because the patient's gender is female and the creatinine concentration is greater than or equal to 0.7 mg/dL, A = 0.7 and B = -1.2.\nPlugging in these values, we get 142 * (6.6/0.7)**-1.2 * 0.9938**65 * 1.012 = 6.49484.\nHence, the GFR value is 6.49484 ml/min/1.73 m².",
+        "Relevant Entities": {
+            "age": [
+                65,
+                "years"
+            ],
+            "creatinine": [
+                6.6,
+                "mg/dL"
+            ],
+            "sex": "Female"
+        },
+        "Upper Limit": "6.81958",
+        "Lower Limit": "6.1701",
+        "LLM Original Answer": {
+            "formula": "Addition of the selected points:\n+------------------------------+----------+---------+\n| Parameter                    | 0 points | 1 point |\n+------------------------------+----------+---------+\n| Altered mental statusGCS<15  | No       | Yes     |\n+------------------------------+----------+---------+\n| Respiratory rate ≥22         | No       | Yes     |\n+------------------------------+----------+---------+\n| Systolic blood pressure ≤100 | No       | Yes     |\n+------------------------------+----------+---------+",
+            "extracted_values": {
+                "extracted_values_reason": "The 2021 CKD-EPI Creatinine equation requires serum creatinine, age, sex, and race. The patient's creatinine (6.6 mg/dL) is explicitly stated. Age (65 years) and sex (female) are provided in the note. Race is unspecified, so it is omitted. The provided formula for adding points is unrelated to the CKD-EPI equation and is ignored.",
+                "extracted_values": {
+                    "serum_creatinine": "6.6 mg/dL",
+                    "age": "65 years",
+                    "sex": "female"
+                }
+            },
+            "calculation": "```python\n# constants\nage = 65\nweight = 70\ngender_coeff = 0.85\nScr = 1.3\n\n# computation\nresult = ((140 - age) * weight * gender_coeff) / (72 * Scr)\n```",
+            "answer": "47.676282051282044"
+        },
+        "Input Tokens": 936,
+        "Output Tokens": 128
+    }
+]

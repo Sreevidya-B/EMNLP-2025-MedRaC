@@ -126,6 +126,14 @@ class Evaluator(ABC):
                 try:
                     parsed_ans = json.loads(text)
                     ans_ok = (parsed_ans.get("result") == "Correct")
+                    # # --- BEGIN: ADDED CODE---
+                    # # FIX: Check if parsed_ans is a dict before calling .get()
+                    # if isinstance(parsed_ans, dict):
+                    #     ans_ok = (parsed_ans.get("result") == "Correct")
+                    # else:
+                    #     logger.warning(f"Answer field parsed to non-dict type: {type(parsed_ans).__name__}")
+                    #     ans_ok = False
+                    # # --- END: ADDED CODE---
                 except json.JSONDecodeError:
                     logger.warning(f"Failed to parse answer field JSON: {text[:100]!r}")
             answer_eval[category].append(1 if ans_ok else 0)
@@ -144,6 +152,15 @@ class Evaluator(ABC):
                         logger.warning(f"Field `{f}` JSON parse failed (first 100 chars): {text[:100]!r}")
                         parsed = {}
                 ok = (parsed.get("result", "") == "Correct")
+                # # --- BEGIN: ADDED CODE---
+                # # FIX: Handle cases where parsed might not be a dict
+                # if isinstance(parsed, dict):
+                #     ok = (parsed.get("result", "") == "Correct")
+                # else:
+                #     # If parsed is a list or other type, treat as incorrect
+                #     logger.warning(f"Field `{f}` parsed to non-dict type: {type(parsed).__name__}")
+                #     ok = False
+                # # --- END: ADDED CODE ---
                 bools.append(ok)
 
             all_correct = all(bools)

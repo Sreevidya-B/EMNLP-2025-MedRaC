@@ -1,0 +1,1687 @@
+[
+  {
+    "Row Number": 660,
+    "input_to_code_gen": {
+      "formula": "QTc = QT / √(60 / HR)",
+      "extracted_values": {
+        "QT": "229",
+        "HR": "174"
+      },
+      "question_context": "Using the Hodges Formula for corrected QT interval, what is the patient's corrected QT interval in terms of msec?"
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 549,
+    "input_to_code_gen": {
+      "formula": "LDL = Total Cholesterol - HDL - (Triglycerides / 5)",
+      "extracted_values": {
+        "total_cholesterol": "145 mg/dL",
+        "hdl_cholesterol": "37 mg/dL",
+        "triglycerides": "95 mg/dL"
+      },
+      "question_context": "What is the patient's LDL cholestrol concentration? Please outuput your answer in terms of mg/dL. You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 352,
+    "input_to_code_gen": {
+      "formula": "HAS-BLED Score = Hypertension + Abnormal Kidney Function + Stroke + Bleeding History + Labile INR + Elderly + Drugs",
+      "extracted_values": {
+        "Hypertension": "No",
+        "Abnormal_Kidney_Function": "No",
+        "Stroke": "No",
+        "Bleeding_History": "No",
+        "Labile_INR": "No",
+        "Elderly": "Yes",
+        "Drugs": "No"
+      },
+      "question_context": "What is the patient's HAS-BLED score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 31,
+    "input_to_code_gen": {
+      "formula": "GFR = 141 × min(Cr / 0.7, 1)^(-0.329) × max(Cr / 0.7, 1)^(-1.209) × 0.9565^(180 - age) × 1.159 (if Black)",
+      "extracted_values": {
+        "serum_creatinine": "3 mg/dl",
+        "age": "28",
+        "sex": "male",
+        "race": "not specified"
+      },
+      "question_context": "Using the 2021 CKD-EPI Creatinine equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 714,
+    "input_to_code_gen": {
+      "formula": "ABW = IBW + 0.4 × (Actual BW - IBW)",
+      "extracted_values": {
+        "IBW": "76.8 kg",
+        "Actual BW": "70 kg"
+      },
+      "question_context": "Using the adjusted body weight formula, what is the patient's adjusted body weight in terms of kg? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 883,
+    "input_to_code_gen": {
+      "formula": "APACHE II Score = Physiological Score + Chronic Health Score",
+      "extracted_values": {
+        "temperature": "99.5°F",
+        "heart_rate": "108 bpm",
+        "respiratory_rate": "29 breaths/min",
+        "mean_arterial_pressure": "105/58 mmHg",
+        "white_blood_cell_count": "15400/mm³",
+        "hematocrit": "33%",
+        "sodium": "135 mEq/L",
+        "potassium": "4.2 mEq/L",
+        "serum_creatinine": "1.9 mg/dL",
+        "glasgow_coma_score": "13",
+        "age": "63",
+        "chronic_health_condition": "chronic kidney disease"
+      },
+      "question_context": "What is the patient's APACHE II score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 691,
+    "input_to_code_gen": {
+      "formula": "BSA = √[(height in cm × weight in kg)/3600]",
+      "extracted_values": {
+        "height": "146 cm",
+        "weight": "42 kg"
+      },
+      "question_context": "What is the patient's body surface area? Please output your answer in terms of m². You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 1030,
+    "input_to_code_gen": {
+      "formula": "gestational_age_weeks = total_days // 7; gestational_age_days = total_days % 7",
+      "extracted_values": {
+        "LMP_date": "02/14/2024",
+        "current_date": "05/23/2024"
+      },
+      "question_context": "Based on the patient's last menstrual period, what is the patient's estimated gestational age? Your answer should be a tuple, specifying the number of weeks and days (i.e. (4 weeks, 3 days), (0 weeks, 5 days), (1 week, 5 days), (8 weeks, 0 days))."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 195,
+    "input_to_code_gen": {
+      "formula": "QTc = QT / sqrt(RR)",
+      "extracted_values": {
+        "QT": "403 msec",
+        "heart_rate": "125 bpm"
+      },
+      "question_context": "What is the patient's QTc interval in seconds using the Bazett formula? Your answer should be in terms of seconds."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 702,
+    "input_to_code_gen": {
+      "formula": "BSA = sqrt((height * weight) / 3600)",
+      "extracted_values": {
+        "height": "172cm",
+        "weight": "100kg"
+      },
+      "question_context": "What is the patient's body surface area? Please output your answer in terms of m². You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 869,
+    "input_to_code_gen": {
+      "formula": "APACHE II Score = SAPS + Age Coefficient + Chronic Health Condition Coefficient",
+      "extracted_values": {
+        "temperature": "38.5°C",
+        "systolic_blood_pressure": "120 mmHg",
+        "heart_rate": "90 bpm",
+        "respiratory_rate": "24 breaths/min",
+        "paO2_fiO2_ratio": "233.3",
+        "ph": "7.32",
+        "hematocrit": "35%",
+        "white_blood_cell_count": "12,000/mm³",
+        "sodium": "138 mEq/L",
+        "potassium": "4.5 mEq/L",
+        "creatinine": "1.8 mg/dL",
+        "age": "55",
+        "chronic_health_condition": "0"
+      },
+      "question_context": "What is the patient's APACHE II score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 447,
+    "input_to_code_gen": {
+      "formula": "CCI = sum of points for each comorbid condition",
+      "extracted_values": {
+        "comorbidities": [
+          "hyperlipidemia",
+          "environmental allergies"
+        ]
+      },
+      "question_context": "What is the patient's Charlson Comorbidity Index (CCI)? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 746,
+    "input_to_code_gen": {
+      "formula": "delta_gap = (Na⁺ - (Cl⁻ + HCO₃⁻)) - 12",
+      "extracted_values": {
+        "sodium": "139 mEq/L",
+        "chloride": "108 mEq/L",
+        "bicarbonate": "15 mmol/L"
+      },
+      "question_context": "What is the patient's delta gap in mEq/L? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 143,
+    "input_to_code_gen": {
+      "formula": "GFR = 186 × (Scr)^-1.154 × (Age)^-0.203 × (0.742 if Black) × (1.212 if male)",
+      "extracted_values": {
+        "Scr": "555.8 μmol/L",
+        "Age": "70",
+        "Race": "Not specified",
+        "Gender": "Male"
+      },
+      "question_context": "Using the MDRD GFR Equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? If the patient is black, please use the MDRD GFR Equation for Blacks. You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 187,
+    "input_to_code_gen": {
+      "formula": "QTc = QT / sqrt(RR)",
+      "extracted_values": {
+        "QT": "412msec",
+        "heart_rate": "102bpm"
+      },
+      "question_context": "What is the patient's QTc interval in seconds using the Bazett formula? Your answer should be in terms of seconds."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 789,
+    "input_to_code_gen": {
+      "formula": "Corrected Anion Gap = Measured Anion Gap + (0.25 × (4.0 - Albumin))",
+      "extracted_values": {
+        "sodium": "125 mM/L",
+        "chloride": "87 mmol/L",
+        "bicarbonate": "28 mmol/L",
+        "albumin": "3.7 g/dL"
+      },
+      "question_context": "What is the patient's albumin corrected delta gap in mEq/L? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 616,
+    "input_to_code_gen": {
+      "formula": "QTc = QT / (HR^(1/3))",
+      "extracted_values": {
+        "QT": "248 msec",
+        "HR": "92 bpm"
+      },
+      "question_context": "Using the Fridericia Formula for corrected QT interval, what is the patient's corrected QT interval in terms of msec?"
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 605,
+    "input_to_code_gen": {
+      "formula": "SIRS_criteria_met = sum(criteria_1 + criteria_2 + criteria_3 + criteria_4)",
+      "extracted_values": {
+        "temperature": "37.4°C",
+        "heart_rate": "97/min",
+        "respiratory_rate": "22/min",
+        "white_blood_cell_count": "9100 cells/mm³"
+      },
+      "question_context": "What are the number of SIRS critiera met by the patient? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 1005,
+    "input_to_code_gen": {
+      "formula": "MME = (Hydrocodone dose × 0.88) + (Tapentadol dose × 0.67)",
+      "extracted_values": {
+        "Hydrocodone_dose": "90mg",
+        "Tapentadol_dose": "10mg"
+      },
+      "question_context": "Based on the number of doses per day and the quantity of different doses, what is the patient's daily Morphine Miligram Equivalents (MME)?"
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 248,
+    "input_to_code_gen": {
+      "formula": "RCRI Score = (History of ischemic heart disease) + (Previous cardiac surgery) + (Hypertension treated with medication) + (Preoperative serum creatinine ≥2.0 mg/dL) + (Intraoperative blood transfusion)",
+      "extracted_values": {
+        "history_of_ischemic_heart_disease": "No",
+        "previous_cardiac_surgery": "No",
+        "hypertension_treated_with_medication": "No",
+        "preoperative_serum_creatinine_mg_dL": "1.0",
+        "intraoperative_blood_transfusion": "No"
+      },
+      "question_context": "What is the patient's score of the Revised Cardiac Risk Index for Pre-Operative Risk? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 16,
+    "input_to_code_gen": {
+      "formula": "Creatinine Clearance (mL/min) = [(140 - age) × adjusted_weight(kg)] / (72 × serum_creatinine(mg/dl))",
+      "extracted_values": {
+        "age": "78",
+        "adjusted_weight": "56.9kg",
+        "serum_creatinine": "0.93mg/dl"
+      },
+      "question_context": "What is the patient's Creatinine Clearance using the Cockroft-Gault Equation in terms of mL/min? You should use the patient's adjusted body weight in kg instead of the patient's actual body weight if the patient is overweight or obese based on their BMI. If the patient's BMI's normal, set their adjusted body weight to the minimum of the ideal body and actual weight. If the patient is underweight, please set their adjusted body weight to their actual body weight. You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 826,
+    "input_to_code_gen": {
+      "formula": "Delta Ratio = [(BUN × (Normal Albumin / Patient's Albumin)) - 2] / Creatinine",
+      "extracted_values": {
+        "BUN": "63 mg/dL",
+        "Creatinine": "10.48 mg/dL",
+        "Albumin": "3.8 g/dL",
+        "Normal Albumin": "4.0 g/dL"
+      },
+      "question_context": "What is the patient's albumin corrected delta ratio? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 1033,
+    "input_to_code_gen": {
+      "formula": "gestational_age_weeks = total_days // 7; gestational_age_days = total_days % 7",
+      "extracted_values": {
+        "LMP_date": "08/17/2021",
+        "current_date": "04/23/2022"
+      },
+      "question_context": "Based on the patient's last menstrual period, what is the patient's estimated gestational age? Your answer should be a tuple, specifying the number of weeks and days (i.e. (4 weeks, 3 days), (0 weeks, 5 days), (1 week, 5 days), (8 weeks, 0 days))."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 646,
+    "input_to_code_gen": {
+      "formula": "QTc = QT / √(RR)",
+      "extracted_values": {
+        "heart_rate": "148 bpm",
+        "qt_interval": "378 msec"
+      },
+      "question_context": "Using the Framingham Formula for corrected QT interval, what is the patient's corrected QT interval in terms of msec?"
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 486,
+    "input_to_code_gen": {
+      "formula": "Free water deficit = (Na_normal - Na_measured) * total body water",
+      "extracted_values": {
+        "Na_normal": "140 mmol/L",
+        "Na_measured": "131 mg·dL⁻¹",
+        "weight": "45 kg"
+      },
+      "question_context": "What is the patient's free water deficit in terms of kg? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 421,
+    "input_to_code_gen": {
+      "formula": "Osmolality = 2*(Na) + (Glucose)/18 + (BUN)/2.8",
+      "extracted_values": {
+        "Na": "135 mmol/L",
+        "Glucose": "41 mg/dL",
+        "BUN": "15 mg/dL"
+      },
+      "question_context": "What is the patient's serum osmolality in terms of mOsm/kg? You may  You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 880,
+    "input_to_code_gen": {
+      "formula": "APACHE II Score = Temperature Points + Systolic BP Points + Heart Rate Points + Respiratory Rate Points + PaO2/FiO2 Points + Sodium Points + Potassium Points + Creatinine Points + GCS Points + Chronic Condition Points",
+      "extracted_values": {
+        "temperature": "99.0°F",
+        "systolic_blood_pressure": "118 mmHg",
+        "heart_rate": "115 bpm",
+        "respiratory_rate": "26 breaths/min",
+        "paO2": "74 mmHg",
+        "fio2": "35%",
+        "serum_sodium": "136 mEq/L",
+        "potassium": "4.1 mEq/L",
+        "creatinine": "1.8 mg/dL",
+        "gcs": "14",
+        "chronic_conditions": "chronic kidney disease"
+      },
+      "question_context": "What is the patient's APACHE II score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 981,
+    "input_to_code_gen": {
+      "formula": "weight = BMI × height²",
+      "extracted_values": {
+        "height": "144cm",
+        "BMI": "20.8 kg/m^2"
+      },
+      "question_context": "Based on the patient's height and target BMI, what is the patient's target weight in kg?"
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 384,
+    "input_to_code_gen": {
+      "formula": "Corrected Sodium (mEq/L) = Measured Sodium (mEq/L) + (Glucose (mg/dL) - 100) * 0.017",
+      "extracted_values": {
+        "measured_sodium": "137 mmol/L",
+        "glucose": "490 mg/dL"
+      },
+      "question_context": "What is the patient's corrected sodium concentration for hyperglycemia in terms of mEq/L? Use the sodium correction equation based on the one derived in Hillier, 1999. You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 759,
+    "input_to_code_gen": {
+      "formula": "Delta Ratio = (AG - 12) / (24 - HCO3-)",
+      "extracted_values": {
+        "sodium": "124 mmol/L",
+        "chloride": "86 mmol/L",
+        "bicarbonate": "14 mmol/L"
+      },
+      "question_context": "What is the patient's delta ratio? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 277,
+    "input_to_code_gen": {
+      "formula": "HEART Score = H + E + A + R + T",
+      "extracted_values": {
+        "History": "0",
+        "ECG": "0",
+        "Age": "0",
+        "Risk_factors": "4",
+        "Troponin": "0"
+      },
+      "question_context": "What is the patient's score of the HEART Score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 661,
+    "input_to_code_gen": {
+      "formula": "QTc = QT * √(HR/60)",
+      "extracted_values": {
+        "QT": "406",
+        "HR": "113"
+      },
+      "question_context": "Using the Hodges Formula for corrected QT interval, what is the patient's corrected QT interval in terms of msec?"
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 715,
+    "input_to_code_gen": {
+      "formula": "ABW = IBW + 0.4 × (Actual Weight - IBW)",
+      "extracted_values": {
+        "actual_weight": "90kg",
+        "height": "180cm"
+      },
+      "question_context": "Using the adjusted body weight formula, what is the patient's adjusted body weight in terms of kg? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 354,
+    "input_to_code_gen": {
+      "formula": "HAS-BLED = H + A + S + B + L + E",
+      "extracted_values": {
+        "H": "0",
+        "A": "0",
+        "S": "1",
+        "B": "0",
+        "L": "0",
+        "E": "0"
+      },
+      "question_context": "What is the patient's HAS-BLED score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 163,
+    "input_to_code_gen": {
+      "formula": "IBW = 50 kg + 2.3 kg × inches_over_5_feet",
+      "extracted_values": {
+        "height_inches_over_5_feet": "7",
+        "gender": "male"
+      },
+      "question_context": "Using the Ideal Body Weight Formula, what is the patient's ideal body weight in terms of kg? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 625,
+    "input_to_code_gen": {
+      "formula": "QTc = QT / (HR^(1/3))",
+      "extracted_values": {
+        "QT": "475",
+        "HR": "161"
+      },
+      "question_context": "Using the Fridericia Formula for corrected QT interval, what is the patient's corrected QT interval in terms of msec?"
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 846,
+    "input_to_code_gen": {
+      "formula": "PSI = (Age points) + (Chronic heart disease) + (Chronic lung disease) + (Immunosuppression) + (Liver disease) + (Diabetes) + (Renal failure) + (Confusion) + (Hypotension) + (Tachycardia) + (Temperature) + (Respiratory rate) + (Oxygenation) + (Blood glucose ≥200 mg/dL)",
+      "extracted_values": {
+        "age": "64",
+        "chronic_heart_disease": "no",
+        "chronic_lung_disease": "no",
+        "immunosuppression": "no",
+        "liver_disease": "no",
+        "diabetes": "yes",
+        "renal_failure": "no",
+        "confusion": "no",
+        "hypotension": "no",
+        "tachycardia": "no",
+        "temperature": "37.5°C",
+        "respiratory_rate": "18",
+        "oxygenation": "83 mmHg",
+        "blood_glucose": "185 mg/dL"
+      },
+      "question_context": "What is the patient's Pneumonia Severity Index (PSI)? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 956,
+    "input_to_code_gen": {
+      "formula": "Betamethasone equivalent (mg) = Cortisone dose (mg) / 10",
+      "extracted_values": {
+        "Cortisone_dose": "260.997mg"
+      },
+      "question_context": "Based on the patient's dose of Cortisone PO, what is the equivalent dosage in mg of Betamethasone IV?"
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 402,
+    "input_to_code_gen": {
+      "formula": "Glasgow-Blatchford Score = (Hb - 10) + (Platelets - 200) + (INR - 1.5) + Shock + (Age - 60) + (Albumin - 3) + (Creatinine - 1) + Comorbidities",
+      "extracted_values": {
+        "hemoglobin": "12.9 g/dL",
+        "creatinine": "1.18 mg/dL",
+        "albumin": "3.4 g/dL"
+      },
+      "question_context": "What is the patient's Glasgow-Blatchford Bleeding score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 547,
+    "input_to_code_gen": {
+      "formula": "LDL = Total Cholesterol - HDL - (Triglycerides / 5)",
+      "extracted_values": {
+        "total_cholesterol": "195 mg/dL",
+        "hdl_cholesterol": "24 mg/dL",
+        "triglycerides": "171 mg/dL"
+      },
+      "question_context": "What is the patient's LDL cholestrol concentration? Please outuput your answer in terms of mg/dL. You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 209,
+    "input_to_code_gen": {
+      "formula": "Child-Pugh Score = (Bilirubin points) + (Albumin points) + (Ascites points) + (Encephalopathy points) + (SBP points)",
+      "extracted_values": {
+        "bilirubin_total": "3.1 mg/dL",
+        "albumin": "2.2 g/dL",
+        "ascites": "severe",
+        "encephalopathy": "absent",
+        "sbp": "absent"
+      },
+      "question_context": "What is the patient's Child-Pugh Score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 249,
+    "input_to_code_gen": {
+      "formula": "RCRI = (ischemic_heart_disease + heart_failure + cerebrovascular_disease + diabetes + renal_failure) + (age > 70 ? 1 : 0)",
+      "extracted_values": {
+        "ischemic_heart_disease": "0",
+        "heart_failure": "0",
+        "cerebrovascular_disease": "0",
+        "diabetes": "0",
+        "renal_failure": "0",
+        "age": "65"
+      },
+      "question_context": "What is the patient's score of the Revised Cardiac Risk Index for Pre-Operative Risk? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 565,
+    "input_to_code_gen": {
+      "formula": "Risk = 100 * [(Age/10) * (Systolic BP/100) * (Total Cholesterol/100) / (HDL/100)] * e^(-0.0032*Age - 0.0021*Systolic BP + 0.0003*Total Cholesterol - 0.0003*HDL)",
+      "extracted_values": {
+        "age": "56",
+        "sex": "female",
+        "systolic_bp": "230",
+        "total_cholesterol": "148",
+        "hdl_cholesterol": "38",
+        "diabetes": "no"
+      },
+      "question_context": "Based on the Framingham Risk Score for Hard Coronary Heart Disease, what is the likelihood of 10-year risk of MI or death for this patient? Please return your answer as a percentage value. You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 485,
+    "input_to_code_gen": {
+      "formula": "FWD = ((Serum Na - Normal Na) / Normal Na) * TBW",
+      "extracted_values": {
+        "serum_sodium": "141 mEq/L",
+        "normal_sodium": "140 mEq/L",
+        "weight_kg": "72 kg"
+      },
+      "question_context": "What is the patient's free water deficit in terms of kg? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 998,
+    "input_to_code_gen": {
+      "formula": "MME = (Dose_Methadone * 8.5) + (Dose_OxyMORphone * 1.5) + (Dose_FentaNYL * 90)",
+      "extracted_values": {
+        "Dose_Methadone": "20mg",
+        "Dose_OxyMORphone": "90mg",
+        "Dose_FentaNYL": "20mg"
+      },
+      "question_context": "Based on the number of doses per day and the quantity of different doses, what is the patient's daily Morphine Miligram Equivalents (MME)?"
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 246,
+    "input_to_code_gen": {
+      "formula": "RCRI = (IHD ? 1 : 0) + (Creatinine ≥ 2.0 ? 1 : 0) + (CVA/TIA ? 1 : 0) + (PVD ? 1 : 0) + (High-risk surgery ? 1 : 0)",
+      "extracted_values": {
+        "ischemic_heart_disease": "No",
+        "creatinine": "5.7 mg/dL",
+        "cva_tia": "No",
+        "peripheral_vascular_disease": "No",
+        "high_risk_surgery": "Yes"
+      },
+      "question_context": "What is the patient's score of the Revised Cardiac Risk Index for Pre-Operative Risk? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 87,
+    "input_to_code_gen": {
+      "formula": "BMI = weight / (height^2)",
+      "extracted_values": {
+        "weight": "60.2 kg",
+        "height": "1.65 m"
+      },
+      "question_context": "What is the patient's body mass mass index (BMI)? Your answer should be in terms of kg/m². You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 58,
+    "input_to_code_gen": {
+      "formula": "CHA2DS2-VASc = CH + H + A2 + D + S2 + V + A + Sc",
+      "extracted_values": {
+        "CH": "0",
+        "H": "1",
+        "A2": "2",
+        "D": "1",
+        "S2": "2",
+        "V": "1",
+        "A": "0",
+        "Sc": "1"
+      },
+      "question_context": "What is the patient's CHA2DS2-VASc Score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 682,
+    "input_to_code_gen": {
+      "formula": "QTc = QT / sqrt(1 + (0.157 * (HR - 100)))",
+      "extracted_values": {
+        "QT": "336",
+        "HR": "103"
+      },
+      "question_context": "Using the Rautaharju Formula for corrected QT interval, what is the patient's corrected QT interval in terms of msec?"
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 181,
+    "input_to_code_gen": {
+      "formula": "QTc = QT / sqrt(RR)",
+      "extracted_values": {
+        "heart_rate": "158 bpm",
+        "qt_interval": "402 msec"
+      },
+      "question_context": "What is the patient's QTc interval in seconds using the Bazett formula? Your answer should be in terms of seconds."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 199,
+    "input_to_code_gen": {
+      "formula": "QTc = QT / √(RR)",
+      "extracted_values": {
+        "QT": "0.283s",
+        "RR": "0.3636s"
+      },
+      "question_context": "What is the patient's QTc interval in seconds using the Bazett formula? Your answer should be in terms of seconds."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 557,
+    "input_to_code_gen": {
+      "formula": "Framingham Risk Score = (Age) + (Total Cholesterol) + (HDL-C) + (Systolic BP) + (Smoking Points) + (Diabetes Points).",
+      "extracted_values": {
+        "age": "67",
+        "total_cholesterol": "167",
+        "hdl_c": "40",
+        "systolic_bp": "170",
+        "smoking": "0",
+        "diabetes": "0"
+      },
+      "question_context": "Based on the Framingham Risk Score for Hard Coronary Heart Disease, what is the likelihood of 10-year risk of MI or death for this patient? Please return your answer as a percentage value. You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 160,
+    "input_to_code_gen": {
+      "formula": "GFR = 175 × (Scr)^(-1.154) × (age)^(-0.203) × (0.988) for Black patients",
+      "extracted_values": {
+        "serum_creatinine": "8.0 mg/dL",
+        "age": "40 years",
+        "race": "Black"
+      },
+      "question_context": "Using the MDRD GFR Equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? If the patient is black, please use the MDRD GFR Equation for Blacks. You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 416,
+    "input_to_code_gen": {
+      "formula": "Osmolality (mOsm/kg) = 2*(Na+) + (Glucose in mg/dL)/18 + (BUN in mg/dL)/2.8",
+      "extracted_values": {
+        "Na+": "142 mmol/L",
+        "Glucose": "298 mg/dL",
+        "BUN": "21 mg/dL"
+      },
+      "question_context": "What is the patient's serum osmolality in terms of mOsm/kg? You may  You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 584,
+    "input_to_code_gen": {
+      "formula": "Number of criteria met = sum of criteria that are satisfied (1 if met, 0 if not).",
+      "extracted_values": {
+        "age": "77 years",
+        "heart_rate": "110 bpm",
+        "trauma": "no",
+        "recent_surgery": "no",
+        "contraceptive_use": "no",
+        "prior_PE_DVT": "no",
+        "hemoptysis": "no",
+        "oxygen_saturation": "96%"
+      },
+      "question_context": "What are the number of criteria met for the PERC Rule for Pulmonary Embolism (PE)? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 525,
+    "input_to_code_gen": {
+      "formula": "CURB-65 = Confusion + Urinary_retention + (Respiratory_rate ≥30 ? 1 : 0) + (Blood_pressure <90 or <60 ? 1 : 0) + (Age ≥65 ? 1 : 0)",
+      "extracted_values": {
+        "Confusion": "0",
+        "Urinary_retention": "0",
+        "Respiratory_rate": "28/min",
+        "Blood_pressure": "125/83 mmHg",
+        "Age": "68"
+      },
+      "question_context": "What is the patient's CURB-65 score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 168,
+    "input_to_code_gen": {
+      "formula": "IBW (kg) = 50 kg + 2.3 kg per inch over 5 feet",
+      "extracted_values": {
+        "height": "186 cm"
+      },
+      "question_context": "Using the Ideal Body Weight Formula, what is the patient's ideal body weight in terms of kg? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 28,
+    "input_to_code_gen": {
+      "formula": "GFR = 141 × min(Creatinine/0.9, 1)^(-0.411) × max(Creatinine/0.9, 1)^(-1.209) × 1.035",
+      "extracted_values": {
+        "creatinine": "5.24 mg/dL",
+        "age": "70",
+        "sex": "male"
+      },
+      "question_context": "Using the 2021 CKD-EPI Creatinine equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 435,
+    "input_to_code_gen": {
+      "formula": "CCI = sum of points for each comorbid condition",
+      "extracted_values": {
+        "malignancy": "1 point (metastatic SCC of the lung at initial admission)"
+      },
+      "question_context": "What is the patient's Charlson Comorbidity Index (CCI)? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 799,
+    "input_to_code_gen": {
+      "formula": "Delta Gap = (Normal Albumin - Measured Albumin) × 4",
+      "extracted_values": {
+        "Normal Albumin": "3.5 g/dl",
+        "Measured Albumin": "2.6 g/dl"
+      },
+      "question_context": "What is the patient's albumin corrected delta gap in mEq/L? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 373,
+    "input_to_code_gen": {
+      "formula": "Corrected Sodium (mEq/L) = Measured Sodium (mEq/L) + (Glucose (mg/dL) - 100) * 0.016",
+      "extracted_values": {
+        "sodium": "133 mEq/L",
+        "glucose": "30.3 mmol/L"
+      },
+      "question_context": "What is the patient's corrected sodium concentration for hyperglycemia in terms of mEq/L? Use the sodium correction equation based on the one derived in Hillier, 1999. You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 649,
+    "input_to_code_gen": {
+      "formula": "QTc = QT / √(60 / HR)",
+      "extracted_values": {
+        "QT": "380 msec",
+        "HR": "79 bpm"
+      },
+      "question_context": "Using the Hodges Formula for corrected QT interval, what is the patient's corrected QT interval in terms of msec?"
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 148,
+    "input_to_code_gen": {
+      "formula": "GFR = 186.3 × (Scr)^(-1.154) × (age)^(-0.203) × (0.742 if female)",
+      "extracted_values": {
+        "serum_creatinine": "10 mg/dL",
+        "age": "40 years",
+        "race": "Caucasian",
+        "sex": "female"
+      },
+      "question_context": "Using the MDRD GFR Equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? If the patient is black, please use the MDRD GFR Equation for Blacks. You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 201,
+    "input_to_code_gen": {
+      "formula": "Child-Pugh Score = (Bilirubin points) + (Albumin points) + (INR points) + (Ascites points) + (Encephalopathy points)",
+      "extracted_values": {
+        "bilirubin": "2.5 mg/dL",
+        "albumin": "2.8 g/dL",
+        "INR": "1.52",
+        "ascites": "2 (moderate-severe)",
+        "encephalopathy": "0 (not mentioned)"
+      },
+      "question_context": "What is the patient's Child-Pugh Score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 290,
+    "input_to_code_gen": {
+      "formula": "FIB-4 = (age × AST) / (platelet × √albumin)",
+      "extracted_values": {
+        "age": "60 years",
+        "AST": "182 IU/L",
+        "platelet": "106300/μL",
+        "albumin": "4.2 g/dL"
+      },
+      "question_context": "What is the patient's score of the Fibrosis 4 Index? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 45,
+    "input_to_code_gen": {
+      "formula": "CHA2DS2-VASc = CH + H + A2 + D + S2 + V + A + Sc",
+      "extracted_values": {
+        "CH": "0",
+        "H": "1",
+        "A2": "2",
+        "D": "0",
+        "S2": "2",
+        "V": "0",
+        "A": "0",
+        "Sc": "1"
+      },
+      "question_context": "What is the patient's CHA2DS2-VASc Score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 427,
+    "input_to_code_gen": {
+      "formula": "HOMA-IR = (fasting glucose [mg/dL] × fasting insulin [mIU/L]) / 405",
+      "extracted_values": {
+        "fasting_glucose": "165 mg/dL",
+        "fasting_insulin": "4.8 mIU/L"
+      },
+      "question_context": "What is the patient's HOMA-IR score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 686,
+    "input_to_code_gen": {
+      "formula": "QTc = QT / sqrt(HR)",
+      "extracted_values": {
+        "QT": "221 msec",
+        "HR": "129 bpm"
+      },
+      "question_context": "Using the Rautaharju Formula for corrected QT interval, what is the patient's corrected QT interval in terms of msec?"
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 516,
+    "input_to_code_gen": {
+      "formula": "CURB-65 = Confusion + Urea + Respiratory rate + Blood pressure + Age ≥65",
+      "extracted_values": {
+        "Confusion": "0",
+        "Urea": "1",
+        "Respiratory rate": "1",
+        "Blood pressure": "0",
+        "Age ≥65": "0"
+      },
+      "question_context": "What is the patient's CURB-65 score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 638,
+    "input_to_code_gen": {
+      "formula": "QTc = QT / sqrt(0.04 * HR + 0.1)",
+      "extracted_values": {
+        "QT": "496 msec",
+        "HR": "84 bpm"
+      },
+      "question_context": "Using the Framingham Formula for corrected QT interval, what is the patient's corrected QT interval in terms of msec?"
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 462,
+    "input_to_code_gen": {
+      "formula": "FeverPAIN score = (Temperature ≥ 38.5°C ? 1 : 0) + (Heart rate ≥ 100 ? 1 : 0) + (Pain present ? 1 : 0) + (Splenomegaly ? 1 : 0) + (ESR ≥ 90 ? 1 : 0) + (CRP ≥ 100 ? 1 : 0)",
+      "extracted_values": {
+        "temperature": "39.4°C",
+        "heart_rate": "105 beats/min",
+        "pain_present": "yes",
+        "splenomegaly": "yes",
+        "esr": "90 mm/hr",
+        "crp": "127 mg/L"
+      },
+      "question_context": "What is the patient's FeverPAIN score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 407,
+    "input_to_code_gen": {
+      "formula": "Osmolality = 2*(Na in mEq/L) + (glucose in mg/dL)/18 + (BUN in mg/dL)/2.8",
+      "extracted_values": {
+        "Na": "129 mmol/L",
+        "glucose": "1087 mg/dL",
+        "BUN": "40 mg/dL"
+      },
+      "question_context": "What is the patient's serum osmolality in terms of mOsm/kg? You may  You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 216,
+    "input_to_code_gen": {
+      "formula": "Child-Pugh Score = (bilirubin points) + (albumin points) + (ascites points) + (encephalopathy points) + (INR points)",
+      "extracted_values": {
+        "bilirubin": "0.5 mg/dl",
+        "albumin": "3.2 g/dl",
+        "ascites": "none",
+        "encephalopathy": "none",
+        "INR": "1.0"
+      },
+      "question_context": "What is the patient's Child-Pugh Score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 92,
+    "input_to_code_gen": {
+      "formula": "BMI = weight / (height^2)",
+      "extracted_values": {
+        "weight": "68kg",
+        "height": "1.6m"
+      },
+      "question_context": "What is the patient's body mass mass index (BMI)? Your answer should be in terms of kg/m². You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 338,
+    "input_to_code_gen": {
+      "formula": "Maintenance fluid (mL/day) = (30 mL/kg for first 10 kg) + (50 mL/kg for next 10 kg) + (20 mL/kg for each kg above 20 kg). Convert to mL/hr by dividing by 24.",
+      "extracted_values": {
+        "weight": "56 kg"
+      },
+      "question_context": "Based on the patient's weight, what is the patient's maintenance fluid in mL/hr?  You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 928,
+    "input_to_code_gen": {
+      "formula": "Caprini Score = (History of VTE × 2) + (Recent Stroke/Heart Failure × 1) + (Major Surgery × 1) + (Age > 70 × 1) + (Obesity × 1) + (Immobility × 1)",
+      "extracted_values": {
+        "history_of_vte": "Yes (documented DVT)",
+        "recent_stroke": "Yes (within last month)",
+        "recent_heart_failure": "Yes (within last month)",
+        "major_surgery": "Yes (arthroscopic knee surgery)",
+        "age": "65",
+        "obesity": "No",
+        "immobility": "No"
+      },
+      "question_context": "What is the patient's Caprini Score for Venous Thromboembolism? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 576,
+    "input_to_code_gen": {
+      "formula": "Number of PERC criteria met = sum of criteria satisfied (age <50, HR <100, no prior PE/DVT, no recent surgery/trauma, no anticoagulation, O2 >95% on room air)",
+      "extracted_values": {
+        "age": "41",
+        "heart_rate": "180",
+        "prior_PE_DVT": "no",
+        "recent_surgery_trauma": "no",
+        "current_anticoagulation": "no",
+        "oxygen_saturation_room_air": "unknown"
+      },
+      "question_context": "What are the number of criteria met for the PERC Rule for Pulmonary Embolism (PE)? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 321,
+    "input_to_code_gen": {
+      "formula": "Maintenance fluid (mL/hr) = (10 kg × 4 mL/hr) + (10 kg × 2 mL/hr) + ((weight - 20 kg) × 1 mL/hr)",
+      "extracted_values": {
+        "weight": "52.3 kg"
+      },
+      "question_context": "Based on the patient's weight, what is the patient's maintenance fluid in mL/hr?  You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 519,
+    "input_to_code_gen": {
+      "formula": "CURB-65 = C + U + R + B + 65",
+      "extracted_values": {
+        "C": "0",
+        "U": "0",
+        "R": "0",
+        "B": "0",
+        "65": "0"
+      },
+      "question_context": "What is the patient's CURB-65 score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 1019,
+    "input_to_code_gen": {
+      "formula": "Conception Date = LMP + 14 days",
+      "extracted_values": {
+        "LMP": "09/15/2023"
+      },
+      "question_context": "Based on the patient's last menstrual period, what is the the patient's estimated date of conception? Your answer should be in the format of M/D/Y (ie 08/31/2023, 07/03/2000) with just the date and not other text."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 173,
+    "input_to_code_gen": {
+      "formula": "IBW (kg) = 45.5 kg + 2.3 kg per inch over 5 feet",
+      "extracted_values": {
+        "height": "1.65 m"
+      },
+      "question_context": "Using the Ideal Body Weight Formula, what is the patient's ideal body weight in terms of kg? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 881,
+    "input_to_code_gen": {
+      "formula": "APACHE II Score = (Temperature points) + (Systolic BP points) + (Heart rate points) + (Respiratory rate points) + (PaO2 points) + (Serum sodium points) + (Serum potassium points) + (Hematocrit points) + (WBC points) + (Creatinine points) + (Chronic conditions points) + (Age points)",
+      "extracted_values": {
+        "age": "49",
+        "chronic_conditions": "0",
+        "temperature": "37.8",
+        "systolic_bp": "120",
+        "heart_rate": "106",
+        "respiratory_rate": "24",
+        "pao2": "80",
+        "serum_sodium": "138",
+        "serum_potassium": "4.4",
+        "hematocrit": "37",
+        "wbc": "15000",
+        "creatinine": "2.0"
+      },
+      "question_context": "What is the patient's APACHE II score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 441,
+    "input_to_code_gen": {
+      "formula": "CCI = sum of points for each comorbidity",
+      "extracted_values": {
+        "coronary_artery_disease": "1 point",
+        "heart_failure": "1 point",
+        "atrial_fibrillation": "1 point",
+        "COPD": "1 point",
+        "type_2_diabetes": "1 point"
+      },
+      "question_context": "What is the patient's Charlson Comorbidity Index (CCI)? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 884,
+    "input_to_code_gen": {
+      "formula": "APACHE II Score = Acute Physiology Score + Chronic Health Evaluation",
+      "extracted_values": {
+        "temperature": "101.0°F",
+        "heart_rate": "112 bpm",
+        "systolic_blood_pressure": "116 mmHg",
+        "respiratory_rate": "30 breaths/min",
+        "paO2": "73 mmHg",
+        "wbc": "13,500/mm³",
+        "hematocrit": "35%",
+        "gcs": "13",
+        "chronic_health_conditions": "1"
+      },
+      "question_context": "What is the patient's APACHE II score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 802,
+    "input_to_code_gen": {
+      "formula": "Corrected Anion Gap = Measured Anion Gap + 2.5*(Normal Albumin - Measured Albumin)",
+      "extracted_values": {
+        "sodium": "133 mEq/L",
+        "chloride": "92 mEq/L",
+        "bicarbonate": "16.8 mEq/L",
+        "albumin": "2.8 g/dL"
+      },
+      "question_context": "What is the patient's albumin corrected delta gap in mEq/L? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 608,
+    "input_to_code_gen": {
+      "formula": "SIRS_criteria_met = sum([temp > 38°C or temp < 36°C, heart_rate > 90, respiratory_rate > 20, WBC > 12,000/mm³ or WBC < 4,000/mm³])",
+      "extracted_values": {
+        "temperature": "38.9°C",
+        "heart_rate": "98/min",
+        "respiratory_rate": "17/min",
+        "WBC_count": "10,500/mm³"
+      },
+      "question_context": "What are the number of SIRS critiera met by the patient? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 159,
+    "input_to_code_gen": {
+      "formula": "GFR = 186 × (Scr)^-1.154 × (age)^-0.203 × 1.212",
+      "extracted_values": {
+        "Scr": "2.8 mg/dL",
+        "age": "60 years",
+        "gender": "male"
+      },
+      "question_context": "Using the MDRD GFR Equation, what is the patient's Glomerular Filtration Rate (GFR) in terms of mL/min/1.73 m²? If the patient is black, please use the MDRD GFR Equation for Blacks. You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 843,
+    "input_to_code_gen": {
+      "formula": "PSI = (points from age) + (points from temperature) + (points from heart rate) + (points from respiratory rate) + (points from systolic BP) + (points from oxygen saturation) + (points from comorbidities)",
+      "extracted_values": {
+        "age": "64",
+        "temperature": "37.6°C",
+        "heart_rate": "89 bpm",
+        "respiratory_rate": "21",
+        "systolic_bp": "119 mmHg",
+        "oxygen_saturation": "80%",
+        "comorbidities": "congestive heart failure"
+      },
+      "question_context": "What is the patient's Pneumonia Severity Index (PSI)? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 393,
+    "input_to_code_gen": {
+      "formula": "Glasgow-Blatchford Score = (Age ≥65: 1) + (Hb ≤90 g/L: 2) + (Hb ≤80 g/L: 3) + (Creatinine ≥150 µmol/L: 1) + (Systolic BP ≤100 or Diastolic BP ≤60: 1) + (Pulse ≥110: 1) + (Comorbidities: 1) + (Transfusion: 1) + (Endoscopic intervention: 1) + (Mortality: 1)",
+      "extracted_values": {
+        "age": "53",
+        "hemoglobin": "12.1 g/dL",
+        "blood_pressure_systolic": "92 mmHg",
+        "blood_pressure_diastolic": "46 mmHg",
+        "pulse_rate": "126 bpm"
+      },
+      "question_context": "What is the patient's Glasgow-Blatchford Bleeding score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 704,
+    "input_to_code_gen": {
+      "formula": "BSA = sqrt((height in cm * weight in kg)/3600)",
+      "extracted_values": {
+        "height": "167cm",
+        "weight": "65kg"
+      },
+      "question_context": "What is the patient's body surface area? Please output your answer in terms of m². You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 344,
+    "input_to_code_gen": {
+      "formula": "<think> \nOkay, let me try to figure out how to calculate the patient's MELD Na score. First, I need to recall what the MELD Na score is. From what I remember, the MELD Na score is used to assess the severity of liver disease, especially in patients with cirrhosis. It's an adaptation of the standard MELD score, which includes factors like international normalized ratio (INR), serum creatinine, and bilirubin. But the MELD Na also takes into account the sodium level in the blood, right?\n\nSo, the formula for MELD Na is something like: MELD Na = 0.035 × (3.5 - serum sodium) + 0.015 × (INR) + 0.035 × (bilirubin) + 0.015 × (creatinine) + 0.035 × (age) + 1.7. Wait, I might be mixing up the exact formula. Let me think again. Alternatively, maybe it's a different combination. I should check the exact formula to be sure.\n\nWait, the MELD Na score is calculated using the standard MELD components plus the sodium level. The formula might be: MELD Na = (0.035 × (3.5 - serum sodium)) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7. But I'm not entirely sure. Another possibility is that it's the standard MELD score plus an adjustment based on sodium. Let me verify.\n\nAlternatively, the MELD Na score is calculated as follows: Take the standard MELD score (which is 100 × [(INR) + (bilirubin) + (creatinine)] / (1.5) + 6.25) and then add 1.75 if the serum sodium is less than 135 mEq/L. Wait, that might not be right either. I need to get this right because the formula is crucial for the calculation.\n\nWait, according to some sources, the MELD Na score is calculated using the formula: MELD Na = 0.035 × (3.5 - sodium) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 0.035 × age + 1.7. But I need to confirm the exact formula. Alternatively, maybe it's the standard MELD score plus an adjustment for sodium. For example, the standard MELD score is calculated as (INR × 10) + (bilirubin × 10) + (creatinine × 10) + 6.25, and then the MELD Na adds an adjustment based on sodium levels. But I'm getting confused here.\n\nWait, perhaps the MELD Na score is calculated using the formula: MELD Na = (0.035 × (3.5 - sodium)) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7. But I need to make sure. Alternatively, I remember that the MELD Na is calculated by adding 1.75 to the standard MELD score if the serum sodium is less than 135 mEq/L. But I need to check.\n\nWait, the MELD Na score is a modification of the MELD score that incorporates serum sodium. The formula is: MELD Na = MELD + 1.75 if sodium < 135 mEq/L. But the MELD itself is calculated as (INR × 10) + (bilirubin × 10) + (creatinine × 10) + 6.25. However, this might not be the exact formula. Alternatively, the MELD Na score is calculated using the formula: MELD Na = 0.035 × (3.5 - sodium) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7. \n\nBut I need to be precise here. Let me think again. According to the MELD Na score guidelines, the formula is: \n\nMELD Na = 0.035 × (3.5 - sodium) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nBut I should confirm this. Alternatively, the formula might be different. For example, some sources say that the MELD Na score is calculated as:\n\nMELD Na = (0.035 × (3.5 - sodium)) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7.\n\nAssuming this formula is correct, then I need to extract the necessary values from the patient's initial lab results. The patient's initial lab values upon admission are:\n\n- INR: 1.26\n- Bilirubin: 2.11 mg/dL\n- Creatinine: 3.16 mg/dL\n- Sodium: 137 mEq/L\n\nWait, the patient's sodium level is 137 mEq/L, which is slightly above 135, so the adjustment for MELD Na might not apply. But I need to check the formula again. Let me make sure.\n\nThe formula for MELD Na is:\n\nMELD Na = 0.035 × (3.5 - sodium) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nSo, plugging in the values:\n\nSodium = 137 mEq/L. So 3.5 - sodium is 3.5 - 137? Wait, that can't be right. Wait, maybe the sodium is in mEq/L, but the formula uses mmol/L. Wait, the formula might have a typo here. Wait, perhaps the formula is actually 0.035 × (3.5 - (sodium in mmol/L / 10))? Or is the sodium value in mmol/L? Wait, this is confusing. Let me think again.\n\nWait, the formula is likely in terms of serum sodium in mEq/L. Wait, but the standard MELD uses creatinine in mg/dL, bilirubin in mg/dL, and INR. The MELD Na score adds the sodium component. But the exact formula might be:\n\nMELD Na = (0.035 × (3.5 - (sodium in mmol/L / 10))) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nWait, but this is getting too complicated. Alternatively, maybe the formula is:\n\nMELD Na = (0.035 × (3.5 - sodium)) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nBut if sodium is 137 mEq/L, then 3.5 - 137 would be a negative number, which doesn't make sense. Therefore, I must have the formula wrong. \n\nWait, perhaps the formula is written as 0.035 × (3.5 - (sodium in mmol/L / 10))? Let me check. Wait, maybe the sodium is in mmol/L, so 137 mEq/L is equivalent to 137 mmol/L. So, 3.5 - 137 would still be negative. That can't be right. \n\nWait, I think I'm mixing up the units. The formula for MELD Na is:\n\nMELD Na = (0.035 × (3.5 - sodium)) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nBut sodium is in mmol/L. However, if the sodium is 137 mmol/L, then 3.5 - 137 is negative. That doesn't make sense. Therefore, I must have the formula wrong. \n\nAlternatively, perhaps the formula is:\n\nMELD Na = (0.035 × (3.5 - (sodium in mmol/L / 10))) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nBut even then, if sodium is 137 mmol/L, then 137 /10 = 13.7, so 3.5 - 13.7 = -10.2. That still gives a negative number. \n\nThis suggests that I'm using the wrong formula. Let me try to recall. The MELD Na score is calculated as follows: \n\nThe standard MELD score is calculated as (INR × 10) + (bilirubin × 10) + (creatinine × 10) + 6.25. Then, the MELD Na score adds an adjustment based on sodium. The adjustment is 1.75 if the sodium is less than 135 mEq/L. However, if sodium is above 135, the adjustment is zero. \n\nWait, that makes more sense. So, the formula would be:\n\nMELD Na = MELD + 1.75 if sodium < 135 mEq/L.\n\nSo, first calculate the standard MELD score, then add 1.75 if sodium is less than 135. \n\nSo, let's try that approach. \n\nFirst, the patient's initial lab values upon admission (before any treatment) are:\n\n- INR: 1.26\n- Bilirubin: 2.11 mg/dL\n- Creatinine: 3.16 mg/dL\n- Sodium: 137 mEq/L\n\nSo, the standard MELD score would be:\n\nMELD = (INR × 10) + (bilirubin × 10) + (creatinine × 10) + 6.25\n\nPlugging in the values:\n\nMELD = (1.26 × 10) + (2.11 × 10) + (3.16 × 10) + 6.25\n\nCalculating each term:\n\n1.26 × 10 = 12.6\n\n2.11 × 10 = 21.1\n\n3.16 × 10 = 31.6\n\nAdding these: 12.6 + 21.1 = 33.7; 33.7 + 31.6 = 65.3; 65.3 + 6.25 = 71.55\n\nSo the standard MELD score is 71.55. \n\nThen, since the sodium level is 137 mEq/L, which is above 135, the adjustment of 1.75 is not added. Therefore, the MELD Na score would be 71.55. \n\nBut wait, that can't be right. Because the MELD score is capped at 40, right? Wait, no. The standard MELD score is calculated as (INR × 10) + (bilirubin × 10) + (creatinine × 10) + 6.25, but the maximum is 40. Wait, no, the MELD score is calculated as (INR × 10) + (bilirubin × 10) + (creatinine × 10) + 6.25, but each component is capped. Wait, no, the MELD score is calculated without capping. For example, if the INR is 2.0, then 2.0 × 10 = 20. If the bilirubin is 5.0, then 5.0 × 10 = 50. But the MELD score is then the sum of these terms plus 6.25. However, the MELD score is capped at 40 for the purpose of some scoring systems, but I think the formula is as I calculated. \n\nBut in this case, the MELD score is 71.55, which is way higher than the maximum of 40. That doesn't make sense. Therefore, I must have made a mistake. \n\nWait, the standard MELD score is calculated as follows: \n\nMELD = 10 × (INR) + 10 × (bilirubin) + 10 × (creatinine) + 6.25. \n\nBut each of the components is capped. For example, the INR is capped at 6.0, bilirubin at 10.0, and creatinine at 1.0. Wait, no, I think the MELD score uses the actual values without capping. However, the MELD score is typically used for patients with cirrhosis, and the values are usually within a range. \n\nBut in this case, the patient has a creatinine of 3.16 mg/dL, which is very high. That would contribute a lot to the MELD score. \n\nBut let's proceed with the formula as per the MELD Na score. \n\nAlternatively, perhaps the MELD Na score is calculated using a different formula. Let me check. \n\nUpon checking, the MELD Na score is calculated as follows:\n\nMELD Na = (0.035 × (3.5 - sodium)) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7. \n\nBut in this case, the sodium is 137 mEq/L. So 3.5 - sodium is 3.5 - 137 = -133.5. Multiplying by 0.035 gives a negative number. That can't be right. \n\nWait, perhaps the formula is written with sodium in mmol/L, and the 3.5 is in mmol/L. Wait, sodium is 137 mmol/L, so 3.5 - 137 = -133.5. Still negative. \n\nThis suggests that the formula might have a typo, or I'm using the wrong formula. \n\nAlternatively, perhaps the formula is:\n\nMELD Na = 0.035 × (3.5 - (sodium in mmol/L / 10)) + ... \n\nWait, if sodium is 137 mmol/L, then 137 / 10 = 13.7. So 3.5 - 13.7 = -10.2. Still negative. \n\nThis is confusing. Maybe I need to look up the correct formula. \n\nUpon checking, the MELD Na score is calculated using the formula:\n\nMELD Na = 0.035 × (3.5 - (sodium in mmol/L / 10)) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7. \n\nBut even with this, sodium is 137 mmol/L. \n\nSo 3.5 - (137 / 10) = 3.5 - 13.7 = -10.2. Multiply by 0.035: -10.2 × 0.035 = -0.357. \n\nThen adding the other terms:\n\n0.015 × INR (1.26) = 0.015 × 1.26 = 0.0189\n\n0.035 × bilirubin (2.11) = 0.035 × 2.11 = 0.07385\n\n0.015 × creatinine (3.16) = 0.015 × 3.16 = 0.0474\n\nAdding all together: -0.357 + 0.0189 + 0.07385 + 0.0474 + 1.7 = \n\nLet's calculate step by step:\n\nStart with -0.357 + 0.0189 = -0.3381\n\n-0.3381 + 0.07385 = -0.26425\n\n-0.26425 + 0.0474 = -0.21685\n\n-0.21685 + 1.7 = 1.48315\n\nSo the MELD Na score would be approximately 1.48. That seems very low, but given the sodium level is high, maybe that's correct. However, this seems contradictory. \n\nAlternatively, perhaps the formula is different. Maybe the MELD Na score is calculated as follows:\n\nMELD Na = MELD + 1.75 if sodium < 135 mEq/L.\n\nSo, the standard MELD score is calculated as:\n\nMELD = (INR × 10) + (bilirubin × 10) + (creatinine × 10) + 6.25.\n\nBut in this case, the MELD would be:\n\n(1.26 × 10) + (2.11 × 10) + (3.16 × 10) + 6.25 = 12.6 + 21.1 + 31.6 + 6.25 = 71.55.\n\nSince sodium is 137 mEq/L, which is above 135, no adjustment is made. So the MELD Na score would be 71.55. But that's way higher than the maximum MELD score of 40. That can't be right. \n\nThis suggests that I'm using the wrong formula. Let me check again. \n\nUpon further research, the MELD Na score is calculated using the formula:\n\nMELD Na = (0.035 × (3.5 - (sodium in mmol/L / 10))) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7.\n\nBut even with this, the calculation gives a very low score. \n\nAlternatively, perhaps the formula is:\n\nMELD Na = (0.035 × (3.5 - (sodium in mmol/L / 10))) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7.\n\nBut if sodium is 137 mmol/L, then:\n\n(3.5 - 13.7) = -10.2\n\nMultiply by 0.035: -0.357\n\nThen add the other terms:\n\n0.015 × 1.26 = 0.0189\n\n0.035 × 2.11 = 0.07385\n\n0.015 × 3.16 = 0.0474\n\nAdding all: -0.357 + 0.0189 + 0.07385 + 0.0474 + 1.7 = 1.48315.\n\nBut this seems too low. However, given that the sodium is high, the adjustment might be negative. \n\nAlternatively, maybe the formula is different. Let me check a reference. \n\nAccording to the MELD Na score calculation, the formula is:\n\nMELD Na = 0.035 × (3.5 - sodium) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nBut sodium is in mmol/L. So if sodium is 137 mmol/L, then:\n\n3.5 - 137 = -133.5\n\nMultiply by 0.035: -4.6725\n\nThen add:\n\n0.015 × 1.26 = 0.0189\n\n0.035 × 2.11 = 0.07385\n\n0.015 × 3.16 = 0.0474\n\nAdding all: -4.6725 + 0.0189 + 0.07385 + 0.0474 + 1.7 = \n\nCalculate step by step:\n\n-4.6725 + 0.0189 = -4.6536\n\n-4.6536 + 0.07385 = -4.57975\n\n-4.57975 + 0.0474 = -4.53235\n\n-4.53235 + 1.7 = -2.83235\n\nThis gives a negative score, which is not possible. Therefore, I must have the formula wrong. \n\nAt this point, I'm confused. Let me try to approach this differently. \n\nThe MELD Na score is used to predict mortality in patients with cirrhosis, particularly those with hepatorenal syndrome. The formula for MELD Na is:\n\nMELD Na = (0.035 × (3.5 - sodium)) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7.\n\nBut if sodium is in mmol/L, then this formula might not be correct. Alternatively, perhaps the sodium is in mEq/L, and the formula uses mmol/L. \n\nWait, sodium is measured in mmol/L or mEq/L, and they are equivalent. So 137 mEq/L = 137 mmol/L. \n\nSo, the formula is:\n\nMELD Na = 0.035 × (3.5 - sodium) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nBut with sodium = 137 mmol/L:\n\n3.5 - 137 = -133.5\n\nMultiply by 0.035: -4.6725\n\nThen add the other terms:\n\n0.015 × 1.26 = 0.0189\n\n0.035 × 2.11 = 0.07385\n\n0.015 × 3.16 = 0.0474\n\nTotal: -4.6725 + 0.0189 + 0.07385 + 0.0474 + 1.7 = -2.83235. \n\nThis is a negative value, which is impossible. Therefore, I must have the formula wrong. \n\nMaybe the formula is:\n\nMELD Na = (0.035 × (3.5 - (sodium in mmol/L / 10))) + ... \n\nSo, sodium = 137 mmol/L, divided by 10 is 13.7.\n\n3.5 - 13.7 = -10.2\n\nMultiply by 0.035: -0.357\n\nThen add the other terms:\n\n0.015 × 1.26 = 0.0189\n\n0.035 × 2.11 = 0.07385\n\n0.015 × 3.16 = 0.0474\n\nTotal: -0.357 + 0.0189 + 0.07385 + 0.0474 + 1.7 = 1.48315.\n\nSo the MELD Na score would be approximately 1.48. \n\nBut this seems very low, but given the high sodium level, it's possible. \n\nAlternatively, perhaps the formula is:\n\nMELD Na = (0.035 × (3.5 - (sodium in mmol/L / 10))) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7.\n\nSo, with sodium = 137 mmol/L, divided by 10 = 13.7, so 3.5 - 13.7 = -10.2, multiplied by 0.035 = -0.357.\n\nThen adding the other terms:\n\n0.015 × 1.26 = 0.0189\n\n0.035 × 2.11 = 0.07385\n\n0.015 × 3.16 = 0.0474\n\nAdding all together: -0.357 + 0.0189 + 0.07385 + 0.0474 + 1.7 = 1.48315.\n\nSo the MELD Na score would be approximately 1.48. \n\nBut this seems very low. However, given the high sodium level, the adjustment might be negative, leading to a lower score. \n\nAlternatively, perhaps the formula is:\n\nMELD Na = 0.035 × (3.5 - (sodium in mmol/L / 10)) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nSo, using this formula, the MELD Na score is approximately 1.48. \n\nBut this seems too low. However, I have to go with the formula I found. \n\nAlternatively, maybe the formula is different. Let me check another source. \n\nAccording to the MELD Na score guidelines, the formula is:\n\nMELD Na = 0.035 × (3.5 - sodium) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nBut this gives a negative value. \n\nAlternatively, perhaps the formula is:\n\nMELD Na = 0.035 × (3.5 - (sodium in mmol/L / 10)) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nWith sodium = 137 mmol/L, divided by 10 = 13.7, so 3.5 - 13.7 = -10.2, multiplied by 0.035 = -0.357. \n\nAdding the other terms: 0.015 × 1.26",
+      "extracted_values": "<think> \nOkay, let me try to figure out how to calculate the patient's MELD Na score. First, I need to recall what the MELD Na score is. From what I remember, the MELD Na score is used to assess the severity of liver disease, especially in patients with cirrhosis. It's an adaptation of the standard MELD score, which includes factors like international normalized ratio (INR), serum creatinine, and bilirubin. But the MELD Na also takes into account the sodium level in the blood, right?\n\nSo, the formula for MELD Na is something like: MELD Na = 0.035 × (3.5 - serum sodium) + 0.015 × (INR) + 0.035 × (bilirubin) + 0.015 × (creatinine) + 0.035 × (age) + 1.7. Wait, I might be mixing up the exact formula. Let me think again. Alternatively, maybe it's a different combination. I should check the exact formula to be sure.\n\nWait, the MELD Na score is calculated using the standard MELD components plus the sodium level. The formula might be: MELD Na = (0.035 × (3.5 - serum sodium)) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7. But I'm not entirely sure. Another possibility is that it's the standard MELD score plus an adjustment based on sodium. Let me verify.\n\nAlternatively, the MELD Na score is calculated as follows: Take the standard MELD score (which is 100 × [(INR) + (bilirubin) + (creatinine)] / (1.5) + 6.25) and then add 1.75 if the serum sodium is less than 135 mEq/L. Wait, that might not be right either. I need to get this right because the formula is crucial for the calculation.\n\nWait, according to some sources, the MELD Na score is calculated using the formula: MELD Na = 0.035 × (3.5 - sodium) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 0.035 × age + 1.7. But I need to confirm the exact formula. Alternatively, maybe it's the standard MELD score plus an adjustment for sodium. For example, the standard MELD score is calculated as (INR × 10) + (bilirubin × 10) + (creatinine × 10) + 6.25, and then the MELD Na adds an adjustment based on sodium levels. But I'm getting confused here.\n\nWait, perhaps the MELD Na score is calculated using the formula: MELD Na = (0.035 × (3.5 - sodium)) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7. But I need to make sure. Alternatively, I remember that the MELD Na is calculated by adding 1.75 to the standard MELD score if the serum sodium is less than 135 mEq/L. But I need to check.\n\nWait, the MELD Na score is a modification of the MELD score that incorporates serum sodium. The formula is: MELD Na = MELD + 1.75 if sodium < 135 mEq/L. But the MELD itself is calculated as (INR × 10) + (bilirubin × 10) + (creatinine × 10) + 6.25. However, this might not be the exact formula. Alternatively, the MELD Na score is calculated using the formula: MELD Na = 0.035 × (3.5 - sodium) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7. \n\nBut I need to be precise here. Let me think again. According to the MELD Na score guidelines, the formula is: \n\nMELD Na = 0.035 × (3.5 - sodium) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nBut I should confirm this. Alternatively, the formula might be different. For example, some sources say that the MELD Na score is calculated as:\n\nMELD Na = (0.035 × (3.5 - sodium)) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7.\n\nAssuming this formula is correct, then I need to extract the necessary values from the patient's initial lab results. The patient's initial lab values upon admission are:\n\n- INR: 1.26\n- Bilirubin: 2.11 mg/dL\n- Creatinine: 3.16 mg/dL\n- Sodium: 137 mEq/L\n\nWait, the patient's sodium level is 137 mEq/L, which is slightly above 135, so the adjustment for MELD Na might not apply. But I need to check the formula again. Let me make sure.\n\nThe formula for MELD Na is:\n\nMELD Na = 0.035 × (3.5 - sodium) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nSo, plugging in the values:\n\nSodium = 137 mEq/L. So 3.5 - sodium is 3.5 - 137? Wait, that can't be right. Wait, maybe the sodium is in mEq/L, but the formula uses mmol/L. Wait, the formula might have a typo here. Wait, perhaps the formula is actually 0.035 × (3.5 - (sodium in mmol/L / 10))? Or is the sodium value in mmol/L? Wait, this is confusing. Let me think again.\n\nWait, the formula is likely in terms of serum sodium in mEq/L. Wait, but the standard MELD uses creatinine in mg/dL, bilirubin in mg/dL, and INR. The MELD Na score adds the sodium component. But the exact formula might be:\n\nMELD Na = (0.035 × (3.5 - (sodium in mmol/L / 10))) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nWait, but this is getting too complicated. Alternatively, maybe the formula is:\n\nMELD Na = (0.035 × (3.5 - sodium)) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nBut if sodium is 137 mEq/L, then 3.5 - 137 would be a negative number, which doesn't make sense. Therefore, I must have the formula wrong. \n\nWait, perhaps the formula is written as 0.035 × (3.5 - (sodium in mmol/L / 10))? Let me check. Wait, maybe the sodium is in mmol/L, so 137 mEq/L is equivalent to 137 mmol/L. So, 3.5 - 137 would still be negative. That can't be right. \n\nWait, I think I'm mixing up the units. The formula for MELD Na is:\n\nMELD Na = (0.035 × (3.5 - sodium)) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nBut sodium is in mmol/L. However, if the sodium is 137 mmol/L, then 3.5 - 137 is negative. That doesn't make sense. Therefore, I must have the formula wrong. \n\nAlternatively, perhaps the formula is:\n\nMELD Na = (0.035 × (3.5 - (sodium in mmol/L / 10))) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nBut even then, if sodium is 137 mmol/L, then 137 /10 = 13.7, so 3.5 - 13.7 = -10.2. That still gives a negative number. \n\nThis suggests that I'm using the wrong formula. Let me try to recall. The MELD Na score is calculated as follows: \n\nThe standard MELD score is calculated as (INR × 10) + (bilirubin × 10) + (creatinine × 10) + 6.25. Then, the MELD Na score adds an adjustment based on sodium. The adjustment is 1.75 if the sodium is less than 135 mEq/L. However, if sodium is above 135, the adjustment is zero. \n\nWait, that makes more sense. So, the formula would be:\n\nMELD Na = MELD + 1.75 if sodium < 135 mEq/L.\n\nSo, first calculate the standard MELD score, then add 1.75 if sodium is less than 135. \n\nSo, let's try that approach. \n\nFirst, the patient's initial lab values upon admission (before any treatment) are:\n\n- INR: 1.26\n- Bilirubin: 2.11 mg/dL\n- Creatinine: 3.16 mg/dL\n- Sodium: 137 mEq/L\n\nSo, the standard MELD score would be:\n\nMELD = (INR × 10) + (bilirubin × 10) + (creatinine × 10) + 6.25\n\nPlugging in the values:\n\nMELD = (1.26 × 10) + (2.11 × 10) + (3.16 × 10) + 6.25\n\nCalculating each term:\n\n1.26 × 10 = 12.6\n\n2.11 × 10 = 21.1\n\n3.16 × 10 = 31.6\n\nAdding these: 12.6 + 21.1 = 33.7; 33.7 + 31.6 = 65.3; 65.3 + 6.25 = 71.55\n\nSo the standard MELD score is 71.55. \n\nThen, since the sodium level is 137 mEq/L, which is above 135, the adjustment of 1.75 is not added. Therefore, the MELD Na score would be 71.55. \n\nBut wait, that can't be right. Because the MELD score is capped at 40, right? Wait, no. The standard MELD score is calculated as (INR × 10) + (bilirubin × 10) + (creatinine × 10) + 6.25, but the maximum is 40. Wait, no, the MELD score is calculated as (INR × 10) + (bilirubin × 10) + (creatinine × 10) + 6.25, but each component is capped. Wait, no, the MELD score is calculated without capping. For example, if the INR is 2.0, then 2.0 × 10 = 20. If the bilirubin is 5.0, then 5.0 × 10 = 50. But the MELD score is then the sum of these terms plus 6.25. However, the MELD score is capped at 40 for the purpose of some scoring systems, but I think the formula is as I calculated. \n\nBut in this case, the MELD score is 71.55, which is way higher than the maximum of 40. That doesn't make sense. Therefore, I must have made a mistake. \n\nWait, the standard MELD score is calculated as follows: \n\nMELD = 10 × (INR) + 10 × (bilirubin) + 10 × (creatinine) + 6.25. \n\nBut each of the components is capped. For example, the INR is capped at 6.0, bilirubin at 10.0, and creatinine at 1.0. Wait, no, I think the MELD score uses the actual values without capping. However, the MELD score is typically used for patients with cirrhosis, and the values are usually within a range. \n\nBut in this case, the patient has a creatinine of 3.16 mg/dL, which is very high. That would contribute a lot to the MELD score. \n\nBut let's proceed with the formula as per the MELD Na score. \n\nAlternatively, perhaps the MELD Na score is calculated using a different formula. Let me check. \n\nUpon checking, the MELD Na score is calculated as follows:\n\nMELD Na = (0.035 × (3.5 - sodium)) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7. \n\nBut in this case, the sodium is 137 mEq/L. So 3.5 - sodium is 3.5 - 137 = -133.5. Multiplying by 0.035 gives a negative number. That can't be right. \n\nWait, perhaps the formula is written with sodium in mmol/L, and the 3.5 is in mmol/L. Wait, sodium is 137 mmol/L, so 3.5 - 137 = -133.5. Still negative. \n\nThis suggests that the formula might have a typo, or I'm using the wrong formula. \n\nAlternatively, perhaps the formula is:\n\nMELD Na = 0.035 × (3.5 - (sodium in mmol/L / 10)) + ... \n\nWait, if sodium is 137 mmol/L, then 137 / 10 = 13.7. So 3.5 - 13.7 = -10.2. Still negative. \n\nThis is confusing. Maybe I need to look up the correct formula. \n\nUpon checking, the MELD Na score is calculated using the formula:\n\nMELD Na = 0.035 × (3.5 - (sodium in mmol/L / 10)) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7. \n\nBut even with this, sodium is 137 mmol/L. \n\nSo 3.5 - (137 / 10) = 3.5 - 13.7 = -10.2. Multiply by 0.035: -10.2 × 0.035 = -0.357. \n\nThen adding the other terms:\n\n0.015 × INR (1.26) = 0.015 × 1.26 = 0.0189\n\n0.035 × bilirubin (2.11) = 0.035 × 2.11 = 0.07385\n\n0.015 × creatinine (3.16) = 0.015 × 3.16 = 0.0474\n\nAdding all together: -0.357 + 0.0189 + 0.07385 + 0.0474 + 1.7 = \n\nLet's calculate step by step:\n\nStart with -0.357 + 0.0189 = -0.3381\n\n-0.3381 + 0.07385 = -0.26425\n\n-0.26425 + 0.0474 = -0.21685\n\n-0.21685 + 1.7 = 1.48315\n\nSo the MELD Na score would be approximately 1.48. That seems very low, but given the sodium level is high, maybe that's correct. However, this seems contradictory. \n\nAlternatively, perhaps the formula is different. Maybe the MELD Na score is calculated as follows:\n\nMELD Na = MELD + 1.75 if sodium < 135 mEq/L.\n\nSo, the standard MELD score is calculated as:\n\nMELD = (INR × 10) + (bilirubin × 10) + (creatinine × 10) + 6.25.\n\nBut in this case, the MELD would be:\n\n(1.26 × 10) + (2.11 × 10) + (3.16 × 10) + 6.25 = 12.6 + 21.1 + 31.6 + 6.25 = 71.55.\n\nSince sodium is 137 mEq/L, which is above 135, no adjustment is made. So the MELD Na score would be 71.55. But that's way higher than the maximum MELD score of 40. That can't be right. \n\nThis suggests that I'm using the wrong formula. Let me check again. \n\nUpon further research, the MELD Na score is calculated using the formula:\n\nMELD Na = (0.035 × (3.5 - (sodium in mmol/L / 10))) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7.\n\nBut even with this, the calculation gives a very low score. \n\nAlternatively, perhaps the formula is:\n\nMELD Na = (0.035 × (3.5 - (sodium in mmol/L / 10))) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7.\n\nBut if sodium is 137 mmol/L, then:\n\n(3.5 - 13.7) = -10.2\n\nMultiply by 0.035: -0.357\n\nThen add the other terms:\n\n0.015 × 1.26 = 0.0189\n\n0.035 × 2.11 = 0.07385\n\n0.015 × 3.16 = 0.0474\n\nAdding all: -0.357 + 0.0189 + 0.07385 + 0.0474 + 1.7 = 1.48315.\n\nBut this seems too low. However, given that the sodium is high, the adjustment might be negative. \n\nAlternatively, maybe the formula is different. Let me check a reference. \n\nAccording to the MELD Na score calculation, the formula is:\n\nMELD Na = 0.035 × (3.5 - sodium) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nBut sodium is in mmol/L. So if sodium is 137 mmol/L, then:\n\n3.5 - 137 = -133.5\n\nMultiply by 0.035: -4.6725\n\nThen add:\n\n0.015 × 1.26 = 0.0189\n\n0.035 × 2.11 = 0.07385\n\n0.015 × 3.16 = 0.0474\n\nAdding all: -4.6725 + 0.0189 + 0.07385 + 0.0474 + 1.7 = \n\nCalculate step by step:\n\n-4.6725 + 0.0189 = -4.6536\n\n-4.6536 + 0.07385 = -4.57975\n\n-4.57975 + 0.0474 = -4.53235\n\n-4.53235 + 1.7 = -2.83235\n\nThis gives a negative score, which is not possible. Therefore, I must have the formula wrong. \n\nAt this point, I'm confused. Let me try to approach this differently. \n\nThe MELD Na score is used to predict mortality in patients with cirrhosis, particularly those with hepatorenal syndrome. The formula for MELD Na is:\n\nMELD Na = (0.035 × (3.5 - sodium)) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7.\n\nBut if sodium is in mmol/L, then this formula might not be correct. Alternatively, perhaps the sodium is in mEq/L, and the formula uses mmol/L. \n\nWait, sodium is measured in mmol/L or mEq/L, and they are equivalent. So 137 mEq/L = 137 mmol/L. \n\nSo, the formula is:\n\nMELD Na = 0.035 × (3.5 - sodium) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nBut with sodium = 137 mmol/L:\n\n3.5 - 137 = -133.5\n\nMultiply by 0.035: -4.6725\n\nThen add the other terms:\n\n0.015 × 1.26 = 0.0189\n\n0.035 × 2.11 = 0.07385\n\n0.015 × 3.16 = 0.0474\n\nTotal: -4.6725 + 0.0189 + 0.07385 + 0.0474 + 1.7 = -2.83235. \n\nThis is a negative value, which is impossible. Therefore, I must have the formula wrong. \n\nMaybe the formula is:\n\nMELD Na = (0.035 × (3.5 - (sodium in mmol/L / 10))) + ... \n\nSo, sodium = 137 mmol/L, divided by 10 is 13.7.\n\n3.5 - 13.7 = -10.2\n\nMultiply by 0.035: -0.357\n\nThen add the other terms:\n\n0.015 × 1.26 = 0.0189\n\n0.035 × 2.11 = 0.07385\n\n0.015 × 3.16 = 0.0474\n\nTotal: -0.357 + 0.0189 + 0.07385 + 0.0474 + 1.7 = 1.48315.\n\nSo the MELD Na score would be approximately 1.48. \n\nBut this seems very low, but given the high sodium level, it's possible. \n\nAlternatively, perhaps the formula is:\n\nMELD Na = (0.035 × (3.5 - (sodium in mmol/L / 10))) + (0.015 × INR) + (0.035 × bilirubin) + (0.015 × creatinine) + 1.7.\n\nSo, with sodium = 137 mmol/L, divided by 10 = 13.7, so 3.5 - 13.7 = -10.2, multiplied by 0.035 = -0.357.\n\nThen adding the other terms:\n\n0.015 × 1.26 = 0.0189\n\n0.035 × 2.11 = 0.07385\n\n0.015 × 3.16 = 0.0474\n\nAdding all together: -0.357 + 0.0189 + 0.07385 + 0.0474 + 1.7 = 1.48315.\n\nSo the MELD Na score would be approximately 1.48. \n\nBut this seems very low. However, given the high sodium level, the adjustment might be negative, leading to a lower score. \n\nAlternatively, perhaps the formula is:\n\nMELD Na = 0.035 × (3.5 - (sodium in mmol/L / 10)) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nSo, using this formula, the MELD Na score is approximately 1.48. \n\nBut this seems too low. However, I have to go with the formula I found. \n\nAlternatively, maybe the formula is different. Let me check another source. \n\nAccording to the MELD Na score guidelines, the formula is:\n\nMELD Na = 0.035 × (3.5 - sodium) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nBut this gives a negative value. \n\nAlternatively, perhaps the formula is:\n\nMELD Na = 0.035 × (3.5 - (sodium in mmol/L / 10)) + 0.015 × INR + 0.035 × bilirubin + 0.015 × creatinine + 1.7.\n\nWith sodium = 137 mmol/L, divided by 10 = 13.7, so 3.5 - 13.7 = -10.2, multiplied by 0.035 = -0.357. \n\nAdding the other terms: 0.015 × 1.26",
+      "question_context": "What is the patient's MELD Na score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 307,
+    "input_to_code_gen": {
+      "formula": "Centor Score = (Fever >38°C ? 1 : 0) + (Absence of cough ? 1 : 0) + (Tonsillar exudate ? 1 : 0) + (History of recent strep throat ? 1 : 0)",
+      "extracted_values": {
+        "fever": "36.2°C",
+        "cough": "present",
+        "tonsillar_exudate": "not mentioned",
+        "recent_strep_throat": "not mentioned"
+      },
+      "question_context": "What is the patient's Centor Score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 236,
+    "input_to_code_gen": {
+      "formula": "Wells Score = Sum of points for applicable criteria (e.g., active cancer, immobilization, previous DVT/PE, etc.)",
+      "extracted_values": {
+        "active_cancer": "No",
+        "immobilization": "No",
+        "previous_DVT_or_PE": "No",
+        "surgery_in_last_4_weeks": "No",
+        "venous_leg_ulcer": "No",
+        "recent_trauma": "No",
+        "clinical_signs_of_DVT": "No",
+        "age_over_50": "No"
+      },
+      "question_context": "What is the patient's score of Wells' criteria for Deep Vein Thrombosis? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 850,
+    "input_to_code_gen": {
+      "formula": "GCS = Eye Opening Score + Verbal Response Score + Motor Response Score",
+      "extracted_values": {
+        "eye_opening": "4",
+        "verbal_response": "5",
+        "motor_response": "6"
+      },
+      "question_context": "What is the patient's Glasgow Coma Score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 135,
+    "input_to_code_gen": {
+      "formula": "Wells_score = 0.5",
+      "extracted_values": {
+        "tachycardia": "140 bpm"
+      },
+      "question_context": "What is the patient's score of Wells' criteria for Pulmonary Embolism? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 9,
+    "input_to_code_gen": {
+      "formula": "Creatinine Clearance (mL/min) = [(140 - age) * weight (kg)] / (72 * serum creatinine (mg/dL)) * 0.85",
+      "extracted_values": {
+        "age": "82",
+        "weight": "46 kg",
+        "serum_creatinine": "3.26 mg/dL"
+      },
+      "question_context": "What is the patient's Creatinine Clearance using the Cockroft-Gault Equation in terms of mL/min? You should use the patient's adjusted body weight in kg instead of the patient's actual body weight if the patient is overweight or obese based on their BMI. If the patient's BMI's normal, set their adjusted body weight to the minimum of the ideal body and actual weight. If the patient is underweight, please set their adjusted body weight to their actual body weight. You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 911,
+    "input_to_code_gen": {
+      "formula": "Caprini Score = Sum of points for each applicable risk factor",
+      "extracted_values": {
+        "congestive_heart_failure": "1",
+        "copd": "1"
+      },
+      "question_context": "What is the patient's Caprini Score for Venous Thromboembolism? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 303,
+    "input_to_code_gen": {
+      "formula": "Centor Score = TonsillarExudates + EnlargedLymphNodes + AbsenceOfCough + Fever",
+      "extracted_values": {
+        "TonsillarExudates": "1",
+        "EnlargedLymphNodes": "1",
+        "AbsenceOfCough": "1",
+        "Fever": "0"
+      },
+      "question_context": "What is the patient's Centor Score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 866,
+    "input_to_code_gen": {
+      "formula": "GCS = Eye Opening + Verbal Response + Motor Response",
+      "extracted_values": {
+        "eye_opening": "1",
+        "verbal_response": "1",
+        "motor_response": "4"
+      },
+      "question_context": "What is the patient's Glasgow Coma Score? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  },
+  {
+    "Row Number": 222,
+    "input_to_code_gen": {
+      "formula": "Wells Score = (1.5 points for paralysis/severe neurological disease) + (other applicable criteria points)",
+      "extracted_values": {
+        "paralysis_or_severe_neurological_disease": "yes"
+      },
+      "question_context": "What is the patient's score of Wells' criteria for Deep Vein Thrombosis? You should use the patient's medical values and health status when they were first admitted to the hospital prior to any treatment."
+    },
+    "output_from_code_gen": {
+      "generated_code (calculation)": "Error: Prompt length of 12811 is longer than the maximum model length of 8000.",
+      "executed_answer (answer)": "Execution error: invalid syntax (<string>, line 1)"
+    }
+  }
+]

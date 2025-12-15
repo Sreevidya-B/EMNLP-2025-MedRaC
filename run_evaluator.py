@@ -24,6 +24,9 @@ from method.medRaC     import MedRaC
 
 from utils.error_type import error_type_pipeline, error_type_pipeline_opt
 
+# from dotenv import load_dotenv
+# load_dotenv()
+
 
 # Note: by default, we set evaluator & model to gpt-4o-mini, in case deepseek API is not accessible. In our paper, we use deepseek-chat as LLM_Evaluator, and deepseek-reasoner to analyze error types. If you want to reproduce our results/stats, please use the two models
 
@@ -47,10 +50,13 @@ from utils.error_type import error_type_pipeline, error_type_pipeline_opt
 
 # If you want to use open-source models, uncomment this line and replace the gpt in method with model
 # model = vllmModels(model_name="Qwen/Qwen3-8B")
-eva_model = vllmModels(model_name="Qwen/Qwen3-4B")
-# eva_model = vllmModels(model_name="Qwen/Qwen3-1.7B")
-# eva_model = vllmModels(model_name="Qwen/Qwen3-0.6B")
-# eva_model = vllmModels(model_name="Qwen/Qwen3-14B")
+# eva_model = vllmModels(model_name="Qwen/Qwen3-4B", max_tokens=16000)
+eva_model = vllmModels(model_name="Qwen/Qwen3-1.7B", max_tokens=16000)
+# eva_model = vllmModels(model_name="Qwen/Qwen3-8B", max_tokens=16000)
+# eva_model = vllmModels(model_name="meta-llama/Llama-3.2-3B-Instruct", max_tokens=16000)
+# eva_model = vllmModels(model_name="microsoft/Phi-4-mini-instruct", max_tokens=16000)
+# eva_model = vllmModels(model_name="google/gemma-3-4b-it", max_tokens=16000)
+
 llm_evaluator = LLM_Evaluator(eva_model)
 reg_evaluator = RegEvaluator()
 
@@ -104,11 +110,13 @@ method_eval = MedRaC(
     llms=[eva_model],
     evaluators=[reg_evaluator, llm_evaluator], 
     model=eva_model,
-    use_rag=False
+    use_rag=True
 )
 
 # Step 2: Evaluate
-raw_json = "/home/sreevidyabol_umass_edu/EMNLP-2025-MedRaC/raw_output/code/Qwen_Qwen3-8B_modular_cot_codeQwen3-8B_raw.json"
+# raw_json = "/home/sreevidyabol_umass_edu/EMNLP-2025-MedRaC/raw_output/code/Qwen_Qwen3-8B_modular_cot_codeQwen3-8B_raw.json"
+# raw_json = "/home/sreevidyabol_umass_edu/EMNLP-2025-MedRaC/raw_output/code/Qwen_Qwen3-8B_modular_cot_code_ragQwen3-8B_raw.json"
+raw_json = "/work/pi_hongyu_umass_edu/sreevidyabol_umass_edu/MedRaC/EMNLP-2025-MedRaC/raw_output/code/Qwen_Qwen3-8B_modular_cot_code_ragQwen3-8B_raw.json"
 eval_json_llm = method_eval.evaluate(raw_json_file=raw_json)
 # Outputs: eval_output/code/Qwen_Qwen3-8B_modular_cot_codeQwen3-8B_eval.json
 

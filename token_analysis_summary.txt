@@ -1,0 +1,27 @@
+------------------------------------------------------------
+SYSTEM MESSAGE TOKEN COUNTS
+------------------------------------------------------------
+System Message Tokens (use_rag=False): 210
+System Message Tokens (use_rag=True):  133
+------------------------------------------------------------
+
+============================================================
+SUMMARY STATISTICS
+============================================================
+Total rows analyzed: 1048
+
+Patient Note Tokens:
+  Min:     16
+  Max:     2361
+  Mean:    617.58
+
+Question Tokens:
+  Min:     20
+  Max:     120
+  Mean:    43.02
+
+User Message Tokens (Patient Note + Question + Template):
+  Min:     82
+  Max:     2446
+  Mean:    698.64
+============================================================

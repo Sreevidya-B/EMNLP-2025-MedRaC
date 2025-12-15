@@ -1,3 +1,4 @@
+from method.open_source_rag import OpenSourceRAG
 from model import LLM
 from typing import Union, Tuple, List
 import json
@@ -12,7 +13,9 @@ from schema.schemas import FormulaAndValues, Values
 import logging
 import pandas as pd
 import re
+import time
 from method import RAG
+# from method.open_source_rag import OpenSourceRAG
 logger = logging.getLogger(__name__)
 
 class MedRaC(Method):
@@ -47,6 +50,8 @@ class MedRaC(Method):
         self.correctness = {}
         self.formulas    = {}
         self.rag = RAG() if use_rag else None
+        # self.rag = OpenSourceRAG() if use_rag else None
+
     
     def generate_raw(
         self,
@@ -57,7 +62,8 @@ class MedRaC(Method):
         """Run the LLM(s) once, persist answers + token stats for each model."""
 
         # 1) load dataset
-        self.df = self.load_data_test() if test else self.load_dataset()
+        # self.df = self.load_data_test() if test else self.load_dataset()
+        self.df = self.load_data_test(row_numbers = [1030, 1034, 949, 950, 951, 468, 469, 476, 649, 651, 448, 449, 458, 467, 911, 914, 829, 830]) if test else self.load_dataset()
 
         notes     = self.df["Patient Note"].tolist()
         questions = self.df["Question"].tolist()
@@ -72,21 +78,145 @@ class MedRaC(Method):
             safe_model_name = model_name.replace("/", "_")
 
             if self.rag:
-                formulas = [self.rag.retrieve(question, k=1)[0][0] for question in questions]
+                # RAG: Retrives formulas first
+                # formulas = [self.rag.retrieve(question, k=1)[0][0] for question in questions] 
+                # --- BEGIN ADDED CODE ---
+                formulas = []
+                for question in questions:
+                    time.sleep(0.7)  # Rate limit control
+                    formulas.append(self.rag.retrieve(question, k=1)[0][0])
+                # --- END ADDED CODE ---
+
                 self.formulas[model_name] = formulas
+                
+                # First LLM call to extract values (RAG mode)
                 prompts = self._gen_extracted_values(notes, formulas, questions)
                 schema = Values
                 generations = llm.generate(prompts, schema=schema)
                 extracted_values, in_toks, out_toks = map(list, zip(*generations))
+                
+                # --- BEGIN ADDED CODE ---
+                # === DEBUG: Log 1st LLM call (RAG mode) ===
+                debug_file_1st = os.path.join(raw_json_dir, f"{safe_model_name}_RAG_1st_call_debug.json")
+                debug_records_1st = []
+                for i, (prompt, ev, in_tok, out_tok, formula) in enumerate(zip(prompts, extracted_values, in_toks, out_toks, formulas)):
+                    sys_msg, usr_msg = prompt
+                    debug_records_1st.append({
+                        "row_number": int(self.df["Row Number"].iloc[i]) if "Row Number" in self.df.columns else i,
+                        # input = system message (fixed) + user message (patient notes + question + formula)
+                        "input": {
+                            "patient_note": notes[i],
+                            "question": questions[i],
+                            "retrieved_formula": formula,
+                            "system_message": sys_msg,
+                            "user_message": usr_msg
+                        },
+                        "output": {
+                            "extracted_values": ev
+                        },
+                        "tokens": {
+                            "input": in_tok,
+                            "output": out_tok
+                        }
+                    })
+                with open(debug_file_1st, "w", encoding="utf-8") as f:
+                    json.dump(debug_records_1st, f, indent=2, ensure_ascii=False)
+                logger.info(f"DEBUG: RAG 1st LLM call logged to {debug_file_1st}")
+                # --- END ADDED CODE ---
+
+
                 self.input_tokens[model_name]  = in_toks
                 self.output_tokens[model_name] = out_toks
+                
+                # Second LLM Call (Code Generation): RAG mode
                 answers, codes = self.generate_code(formulas, extracted_values, questions)
+                
+                # --- BEGIN ADDED CODE ---
+                # === DEBUG: Log 2nd LLM call (RAG mode) ===
+                debug_file_2nd = os.path.join(raw_json_dir, f"{safe_model_name}_RAG_2nd_call_debug.json")
+                code_prompts = self._gen_code_prompt(formulas, extracted_values, questions)
+                debug_records_2nd = []
+                for i, (code_prompt, code, answer) in enumerate(zip(code_prompts, codes, answers)):
+                    sys_msg_code, usr_msg_code = code_prompt
+                    debug_records_2nd.append({
+                        "row_number": int(self.df["Row Number"].iloc[i]) if "Row Number" in self.df.columns else i,
+                        "input": {
+                            "formula": formulas[i],
+                            "extracted_values": extracted_values[i],
+                            "question": questions[i],
+                            "system_message": sys_msg_code,
+                            "user_message": usr_msg_code
+                        },
+                        "output": {
+                            "generated_code": code,
+                            "executed_answer": answer
+                        }
+                    })
+                with open(debug_file_2nd, "w", encoding="utf-8") as f:
+                    json.dump(debug_records_2nd, f, indent=2, ensure_ascii=False)
+                logger.info(f"DEBUG: RAG 2nd LLM call logged to {debug_file_2nd}")     
+                # --- END ADDED CODE ---
 
             else:
                 prompts = self._gen_formula_and_extracted_values(notes, questions)
                 schema = FormulaAndValues
-                generations = llm.generate(prompts, schema=schema)
+                # First LLM Call (Formula/Value Extraction)
+                # This call takes the patient note and the question as input and asks the LLM to reason about the problem, identify the correct medical formula
+                # and extract the necessary values from the note.
+                generations = llm.generate(prompts, schema=schema) 
                 responses_list, in_toks, out_toks = map(list, zip(*generations))
+                
+                # --- BEGIN ADDED CODE ---
+                # Write the input and output tokens to a file for each row in the dataset
+                with open("input_output_tokens.txt", "w", encoding="utf-8") as f:
+                    for i, (prompt, response, in_tok, out_tok) in enumerate(zip(prompts, responses_list, in_toks, out_toks)):
+                        system_msg, user_msg = prompt
+                        row_number = self.df["Row Number"].iloc[i]
+                        f.write(f"row number in the dataset: {row_number}\n")
+                        f.write("-"*120 + "\n")
+                        # input = system message (fixed) + user message (patient notes + question)
+                        f.write("--- INPUT TOKENS (Input Prompt = System Message + User Message): ---\n")
+                        f.write("-"*120 + "\n")
+                        f.write(f"System Message remains constant across all rows in the dataset.\n")
+                        f.write(f"User Message is tailored based on each data entry.\n")
+                        f.write("="*120 + "\n")
+                        f.write(f"System Message:\n\n{system_msg}\n\n")
+                        f.write("-"*120 + "\n")
+                        f.write(f"User Message:\n\n{user_msg}\n\n")
+                        f.write("="*120 + "\n")
+                        f.write("--- OUTPUT TOKENS (Model's generated answer to the input prompt): ---\n\n")
+                        f.write(f"{response}\n\n")
+                        f.write("="*120 + "\n")
+                        f.write(f"Input Tokens: {in_tok}\n")
+                        f.write(f"Output Tokens: {out_tok}\n")
+                        f.write("="*120 + "\n\n\n")
+                
+                
+                # # === DEBUG: Log 1st LLM call (non-RAG mode) ===
+                # debug_file_1st = os.path.join(raw_json_dir, f"{safe_model_name}_1st_call_debug.json")
+                # debug_records_1st = []
+                # for i, (prompt, response, in_tok, out_tok) in enumerate(zip(prompts, responses_list, in_toks, out_toks)):
+                #     sys_msg, usr_msg = prompt
+                #     debug_records_1st.append({
+                #         "row_number": int(self.df["Row Number"].iloc[i]) if "Row Number" in self.df.columns else i,
+                #         "input": {
+                #             "patient_note_snippet": notes[i][:300],
+                #             "question": questions[i],
+                #             "system_message": sys_msg,
+                #             "user_message": usr_msg
+                #         },
+                #         "output": response,
+                #         "tokens": {
+                #             "input": in_tok,
+                #             "output": out_tok
+                #         }
+                #     })
+                # with open(debug_file_1st, "w", encoding="utf-8") as f:
+                #     json.dump(debug_records_1st, f, indent=2, ensure_ascii=False)
+                # logger.info(f"DEBUG: Non-RAG 1st LLM call logged to {debug_file_1st}")
+                
+                # --- END ADDED CODE ---
+                
                 self.input_tokens[model_name]  = in_toks
                 self.output_tokens[model_name] = out_toks
 
@@ -105,8 +235,74 @@ class MedRaC(Method):
                         formulas.append(r)
                         extracted_values.append(r)
 
+                # --- BEGIN ADDED CODE: 1ST LLM OUTPUT ---
+                first_llm_output = []
+                for idx, (f, e, q, n) in enumerate(zip(formulas, extracted_values, questions, notes)):
+                    first_llm_output.append({
+                        "Row Number": int(self.df["Row Number"].iloc[idx]),
+                        "question": q,
+                        "patient_note_snippet": n,
+                        "extracted_formula": f,
+                        "extracted_values": e
+                    })
+                
+                first_output_path = os.path.join(raw_json_dir, f"{safe_model_name}_1st_llm_output.json")
+                with open(first_output_path, 'w', encoding='utf-8') as f:
+                    json.dump(first_llm_output, f, indent=2, ensure_ascii=False)
+                print(f"1st LLM output saved to: {first_output_path}")
+                # --- END ADDED CODE ---
+                
+                # Second LLM Call (Code Generation and Execution)
+                # This call takes the formula and values extracted from the first step and asks the LLM to generate a Python code snippet to perform the calculation.
                 answers, codes = self.generate_code(formulas, extracted_values, questions)
-
+                
+                # --- BEGIN ADDED CODE: 2ND LLM INPUT/OUTPUT ---
+                second_llm_data = []
+                for idx, (f, e, q, code, answer) in enumerate(zip(formulas, extracted_values, questions, codes, answers)):
+                    second_llm_data.append({
+                        "Row Number": int(self.df["Row Number"].iloc[idx]),
+                        "input_to_code_gen": {
+                            "formula": f,
+                            "extracted_values": e,
+                            "question_context": q
+                        },
+                        "output_from_code_gen": {
+                            "generated_code (calculation)": code,
+                            "executed_answer (answer)": answer
+                        }
+                    })
+                
+                second_output_path = os.path.join(raw_json_dir, f"{safe_model_name}_2nd_llm_output.json")
+                with open(second_output_path, 'w', encoding='utf-8') as f:
+                    json.dump(second_llm_data, f, indent=2, ensure_ascii=False)
+                print(f"2nd LLM input/output saved to: {second_output_path}")
+                
+                # # === DEBUG: Log 2nd LLM call (non-RAG mode) ===
+                # debug_file_2nd = os.path.join(raw_json_dir, f"{safe_model_name}_2nd_call_debug.json")
+                # code_prompts = self._gen_code_prompt(formulas, extracted_values, questions)
+                # debug_records_2nd = []
+                # for i, (code_prompt, code, answer) in enumerate(zip(code_prompts, codes, answers)):
+                #     sys_msg_code, usr_msg_code = code_prompt
+                #     debug_records_2nd.append({
+                #         "row_number": int(self.df["Row Number"].iloc[i]) if "Row Number" in self.df.columns else i,
+                #         "input": {
+                #             "formula": formulas[i],
+                #             "extracted_values": extracted_values[i],
+                #             "question": questions[i],
+                #             "system_message": sys_msg_code,
+                #             "user_message": usr_msg_code
+                #         },
+                #         "output": {
+                #             "generated_code": code,
+                #             "executed_answer": answer
+                #         }
+                #     })
+                # with open(debug_file_2nd, "w", encoding="utf-8") as f:
+                #     json.dump(debug_records_2nd, f, indent=2, ensure_ascii=False)
+                # logger.info(f"DEBUG: Non-RAG 2nd LLM call logged to {debug_file_2nd}")
+                
+                # --- END ADDED CODE ---
+                
             self.responses[model_name] = [
                 {"formula": f, "extracted_values": e, "calculation": c, "answer": a}
                 for f, e, c, a in zip(formulas, extracted_values, codes, answers)
@@ -250,6 +446,7 @@ class MedRaC(Method):
 
         # Call the model to generate code
         gens = self.model.generate(prompts)  # List[Tuple[str, int, int]]
+        
         codes = [r for r, _, _ in gens]
 
         # Unpack responses and update token counts
@@ -315,7 +512,7 @@ class MedRaC(Method):
 
         # 2. build user messages 
         prompts: List[Tuple[str, str]] = []
-
+        
         for formula_raw, vals_raw, q in zip(formulas, extracted_values, questions):
 
             # a) in case rag returns a list of [formulas, scores]
@@ -420,7 +617,7 @@ class MedRaC(Method):
 
         return results
 
-    def _gen_formula_and_extracted_values(self, notes, questions):
+    def  _gen_formula_and_extracted_values(self, notes, questions):
 
         prompts = []
         
@@ -454,6 +651,7 @@ class MedRaC(Method):
         prompts = []
         
         for note, formula, question in zip(notes, formulas, questions):
+            
             system_msg = (
                 "You are a reasoning assistant that follows a chain-of-thought approach to find important information in a given patient note. "
                 "Follow these steps to extract necessary information:\n"
