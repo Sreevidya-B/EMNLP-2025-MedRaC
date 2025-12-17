@@ -28,7 +28,7 @@ class RAG:
     def __init__(
         self,
         doc_path: str = "data/web_formula.txt",
-        embedding_model: str = "text-embedding-3-small", # text-embedding-ada-002, text-embedding-3-small, text-embedding-3-large
+        embedding_model: str = "text-embedding-ada-002", # text-embedding-ada-002, text-embedding-3-small, text-embedding-3-large
         embeddings_dir: str = "data/one_shot_finalized_explanation_formulas_embeddings",
         normalize_embeddings: bool = True,
     ) -> None:
@@ -248,7 +248,7 @@ class RAG:
 # Usage example (uncomment to run)
 # -------------------------------------------------------------------------
 # if __name__ == "__main__":
-#     rag = RAG(doc_path="web_formula.txt")
+#     rag = RAG(doc_path="/work/pi_hongyu_umass_edu/sreevidyabol_umass_edu/MedRaC/EMNLP-2025-MedRaC/data/web_formula.txt")
 #     question = "Based on the patient's last menstrual period, what is the patient's estimated gestational age? Your answer should be a tuple, specifying the number of weeks and days (i.e. (4 weeks, 3 days), (0 weeks, 5 days), (1 week, 5 days), (8 weeks, 0 days))."
 #     top_k = 5
 #     results = rag.retrieve(question, k=top_k)

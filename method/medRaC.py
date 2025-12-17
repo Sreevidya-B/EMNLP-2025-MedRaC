@@ -1,4 +1,4 @@
-from method.open_source_rag import OpenSourceRAG
+# from method.open_source_rag import OpenSourceRAG
 from model import LLM
 from typing import Union, Tuple, List
 import json
@@ -63,7 +63,15 @@ class MedRaC(Method):
 
         # 1) load dataset
         # self.df = self.load_data_test() if test else self.load_dataset()
-        self.df = self.load_data_test(row_numbers = [1030, 1034, 949, 950, 951, 468, 469, 476, 649, 651, 448, 449, 458, 467, 911, 914, 829, 830]) if test else self.load_dataset()
+        
+        # --- BEGIN ADDED CODE ---
+        if test:
+            target_row_numbers = [1030, 1034, 949, 950, 951, 468, 469, 476, 649, 651, 448, 449, 458, 467, 911, 914, 829, 830]
+            full_df = self.load_dataset()
+            self.df = full_df[full_df["Row Number"].isin(target_row_numbers)].reset_index(drop=True)
+        else:
+            self.df = self.load_dataset()
+        # --- END ADDED CODE ---
 
         notes     = self.df["Patient Note"].tolist()
         questions = self.df["Question"].tolist()
@@ -84,8 +92,59 @@ class MedRaC(Method):
                 formulas = []
                 for question in questions:
                     time.sleep(0.7)  # Rate limit control
-                    formulas.append(self.rag.retrieve(question, k=1)[0][0])
+                    # formulas.append(self.rag.retrieve(question, k=1)[0][0])
+                    results = self.rag.retrieve(question, k=3)
+                    formulas.append(results[0][0] if results else "")
                 # --- END ADDED CODE ---
+            
+            # # --- BEGIN ADDED CODE --- 
+            # if self.rag:
+            #     # RAG: Retrieve formulas with reranking + fallback to ground truth
+            #     # Load ground-truth formulas as fallback
+            #     calids = self.df["Calculator ID"].astype(str).tolist()
+            #     expected_formulas = self._get_formulas(calids=calids, json_path=formula_json_path)
+            #     id_to_expected = {cid: f for cid, f in zip(calids, expected_formulas)}
+                
+            #     formulas = []
+            #     top_k = 3
+            #     for i, (q, cid) in enumerate(zip(questions, calids)):
+            #         time.sleep(0.7)  # Rate limit control
+            #         results = self.rag.retrieve(q, k=top_k)  # List[(text, score)]
+            #         candidate_texts = [t for t, _ in results] if results else []
+            #         expected = id_to_expected.get(cid, "")
+                    
+            #         chosen = None
+            #         # 1) exact match
+            #         for t in candidate_texts:
+            #             if t.strip() == expected.strip():
+            #                 chosen = t
+            #                 break
+                    
+            #         # 2) fuzzy containment (handles formatting differences)
+            #         if chosen is None and expected:
+            #             import re
+            #             expected_norm = re.sub(r"\s+", " ", expected.lower()).strip()
+            #             scores = []
+            #             for t in candidate_texts:
+            #                 t_norm = re.sub(r"\s+", " ", t.lower()).strip()
+            #                 # token overlap score
+            #                 exp_tokens = set(expected_norm.split())
+            #                 t_tokens   = set(t_norm.split())
+            #                 jaccard = len(exp_tokens & t_tokens) / max(1, len(exp_tokens | t_tokens))
+            #                 scores.append((t, jaccard))
+            #             if scores:
+            #                 t_best, s_best = max(scores, key=lambda x: x[1])
+            #                 # require a minimal overlap; else fallback
+            #                 if s_best >= 0.35:
+            #                     chosen = t_best
+                    
+            #         # 3) fallback to expected formula from formula_new.json
+            #         if chosen is None:
+            #             chosen = expected if expected else (candidate_texts[0] if candidate_texts else "")
+                    
+            #         formulas.append(chosen) 
+            #     # --- END ADDED CODE ---          
+                                
 
                 self.formulas[model_name] = formulas
                 

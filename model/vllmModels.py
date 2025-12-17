@@ -130,9 +130,10 @@ class vllmModels(LLM):
             batch_size = 1024
         elif any(x in model_name_lower for x in ["13b", "14b"]):
             batch_size = 64
-        elif any(x in model_name_lower for x in ["3b", "4b","phi"]):
-            # batch_size = 256
-            batch_size = 128
+        # elif any(x in model_name_lower for x in ["3b", "4b","phi"]):
+        #   batch_size = 256
+        elif any(x in model_name_lower for x in ["1.7b", "3b", "4b","phi"]):
+            batch_size = 64
         elif any(x in model_name_lower for x in ["7b", "8b"]):
             # batch_size = 256
             batch_size = 128

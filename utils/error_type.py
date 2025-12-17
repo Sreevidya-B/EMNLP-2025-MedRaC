@@ -496,7 +496,7 @@ def error_type_pipeline_opt(input_json: str, output_json_dir: str, model: Union[
     # ---------- save ----------------------------------------------------
     out_dir  = Path(output_json_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_file = out_dir / f"{safe_model_name}_error_eval.json"
+    out_file = out_dir / f"{safe_model_name}_error_eval_Qwen3-1.7B.json"
     out_file.write_text(
         json.dumps(df.to_dict(orient="records"), ensure_ascii=False, indent=2),
         encoding="utf-8",

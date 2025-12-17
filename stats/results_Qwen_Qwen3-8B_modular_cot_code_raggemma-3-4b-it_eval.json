@@ -1,214 +1,214 @@
 {
     "date": {
         "regular expression evaluation": {
-            "average": 43.33,
+            "average": 61.67,
             "std": 0.06,
             "count": 60
         },
         "llm evaluation": {
-            "raw_average": 33.33,
+            "raw_average": 41.67,
             "average": 33.33,
             "std": 0.06,
             "count": 60,
-            "formula error": 30.0,
+            "formula error": 7.5,
             "extracted_values error": 0.0,
-            "calculation error": 22.5,
-            "answer error": 47.5,
-            "formula error conditional": 20.0,
+            "calculation error": 35.0,
+            "answer error": 57.5,
+            "formula error conditional": 5.0,
             "extracted_values error conditional": 0.0,
-            "calculation error conditional": 18.75,
-            "answer error conditional": 48.72
+            "calculation error conditional": 24.56,
+            "answer error conditional": 53.49
         }
     },
     "diagnosis": {
         "regular expression evaluation": {
-            "average": 31.67,
+            "average": 68.33,
             "std": 0.06,
             "count": 60
         },
         "llm evaluation": {
-            "raw_average": 21.67,
-            "average": 5.0,
-            "std": 0.03,
+            "raw_average": 56.67,
+            "average": 36.67,
+            "std": 0.06,
             "count": 60,
-            "formula error": 42.11,
-            "extracted_values error": 31.58,
-            "calculation error": 17.54,
-            "answer error": 8.77,
-            "formula error conditional": 40.0,
-            "extracted_values error conditional": 50.0,
-            "calculation error conditional": 55.56,
-            "answer error conditional": 62.5
+            "formula error": 0.0,
+            "extracted_values error": 39.47,
+            "calculation error": 34.21,
+            "answer error": 26.32,
+            "formula error conditional": 0.0,
+            "extracted_values error conditional": 25.0,
+            "calculation error conditional": 28.89,
+            "answer error conditional": 31.25
         }
     },
     "dosage conversion": {
         "regular expression evaluation": {
-            "average": 7.5,
-            "std": 0.04,
+            "average": 85.0,
+            "std": 0.06,
             "count": 40
         },
         "llm evaluation": {
-            "raw_average": 5.0,
-            "average": 0.0,
-            "std": 0.0,
+            "raw_average": 57.5,
+            "average": 22.5,
+            "std": 0.07,
             "count": 40,
-            "formula error": 67.5,
-            "extracted_values error": 27.5,
-            "calculation error": 2.5,
-            "answer error": 2.5,
-            "formula error conditional": 67.5,
-            "extracted_values error conditional": 84.62,
-            "calculation error conditional": 50.0,
-            "answer error conditional": 100.0
+            "formula error": 45.16,
+            "extracted_values error": 35.48,
+            "calculation error": 3.23,
+            "answer error": 16.13,
+            "formula error conditional": 35.0,
+            "extracted_values error conditional": 42.31,
+            "calculation error conditional": 6.67,
+            "answer error conditional": 35.71
         }
     },
     "lab test": {
         "regular expression evaluation": {
-            "average": 34.66,
-            "std": 0.03,
+            "average": 80.67,
+            "std": 0.02,
             "count": 326
         },
         "llm evaluation": {
-            "raw_average": 25.77,
-            "average": 22.39,
-            "std": 0.02,
+            "raw_average": 81.6,
+            "average": 51.53,
+            "std": 0.03,
             "count": 326,
-            "formula error": 45.06,
-            "extracted_values error": 13.83,
-            "calculation error": 7.91,
-            "answer error": 33.2,
-            "formula error conditional": 34.97,
-            "extracted_values error conditional": 16.51,
-            "calculation error conditional": 11.3,
-            "answer error conditional": 53.5
+            "formula error": 18.35,
+            "extracted_values error": 19.62,
+            "calculation error": 49.37,
+            "answer error": 12.66,
+            "formula error conditional": 8.9,
+            "extracted_values error conditional": 10.44,
+            "calculation error conditional": 29.32,
+            "answer error conditional": 10.64
         }
     },
     "physical": {
         "regular expression evaluation": {
-            "average": 55.19,
+            "average": 78.42,
             "std": 0.03,
             "count": 241
         },
         "llm evaluation": {
-            "raw_average": 41.49,
-            "average": 29.05,
+            "raw_average": 76.76,
+            "average": 66.8,
             "std": 0.03,
             "count": 241,
-            "formula error": 48.54,
-            "extracted_values error": 1.17,
-            "calculation error": 10.53,
-            "answer error": 39.77,
-            "formula error conditional": 34.44,
-            "extracted_values error conditional": 1.27,
-            "calculation error conditional": 11.54,
-            "answer error conditional": 49.28
+            "formula error": 42.5,
+            "extracted_values error": 2.5,
+            "calculation error": 28.75,
+            "answer error": 26.25,
+            "formula error conditional": 14.11,
+            "extracted_values error conditional": 0.97,
+            "calculation error conditional": 11.22,
+            "answer error conditional": 11.54
         }
     },
     "risk": {
         "regular expression evaluation": {
-            "average": 15.35,
-            "std": 0.02,
+            "average": 39.42,
+            "std": 0.03,
             "count": 241
         },
         "llm evaluation": {
-            "raw_average": 10.37,
-            "average": 3.73,
-            "std": 0.01,
+            "raw_average": 31.54,
+            "average": 18.67,
+            "std": 0.03,
             "count": 241,
-            "formula error": 40.52,
-            "extracted_values error": 21.98,
-            "calculation error": 12.5,
-            "answer error": 25.0,
-            "formula error conditional": 39.0,
-            "extracted_values error conditional": 34.69,
-            "calculation error conditional": 30.21,
-            "answer error conditional": 86.57
+            "formula error": 15.31,
+            "extracted_values error": 30.1,
+            "calculation error": 18.37,
+            "answer error": 36.22,
+            "formula error conditional": 12.45,
+            "extracted_values error conditional": 27.96,
+            "calculation error conditional": 23.68,
+            "answer error conditional": 61.21
         }
     },
     "severity": {
         "regular expression evaluation": {
-            "average": 21.25,
+            "average": 72.5,
             "std": 0.05,
             "count": 80
         },
         "llm evaluation": {
-            "raw_average": 20.0,
-            "average": 1.25,
-            "std": 0.01,
+            "raw_average": 70.0,
+            "average": 47.5,
+            "std": 0.06,
             "count": 80,
-            "formula error": 72.15,
-            "extracted_values error": 11.39,
-            "calculation error": 0.0,
-            "answer error": 16.46,
-            "formula error conditional": 71.25,
-            "extracted_values error conditional": 39.13,
-            "calculation error conditional": 0.0,
-            "answer error conditional": 92.86
+            "formula error": 16.67,
+            "extracted_values error": 42.86,
+            "calculation error": 21.43,
+            "answer error": 19.05,
+            "formula error conditional": 8.75,
+            "extracted_values error conditional": 24.66,
+            "calculation error conditional": 16.36,
+            "answer error conditional": 17.39
         }
     },
     "equation-based question": {
         "regular expression evaluation": {
-            "average": 41.23,
+            "average": 78.41,
             "std": 0.02,
             "count": 667
         },
         "llm evaluation": {
-            "raw_average": 30.88,
-            "average": 24.44,
+            "raw_average": 74.81,
+            "average": 53.67,
             "std": 0.02,
             "count": 667,
-            "formula error": 46.83,
-            "extracted_values error": 9.52,
-            "calculation error": 9.52,
-            "answer error": 34.13,
-            "formula error conditional": 35.38,
-            "extracted_values error conditional": 11.14,
-            "calculation error conditional": 12.53,
-            "answer error conditional": 51.34
+            "formula error": 25.89,
+            "extracted_values error": 14.24,
+            "calculation error": 37.54,
+            "answer error": 22.33,
+            "formula error conditional": 11.99,
+            "extracted_values error conditional": 7.5,
+            "calculation error conditional": 21.36,
+            "answer error conditional": 16.16
         }
     },
     "rule-based question": {
         "regular expression evaluation": {
-            "average": 19.16,
-            "std": 0.02,
+            "average": 50.92,
+            "std": 0.03,
             "count": 381
         },
         "llm evaluation": {
-            "raw_average": 14.17,
-            "average": 3.41,
-            "std": 0.01,
+            "raw_average": 43.57,
+            "average": 27.56,
+            "std": 0.02,
             "count": 381,
-            "formula error": 47.55,
-            "extracted_values error": 21.2,
-            "calculation error": 10.6,
-            "answer error": 20.65,
-            "formula error conditional": 45.93,
-            "extracted_values error conditional": 37.86,
-            "calculation error conditional": 30.47,
-            "answer error conditional": 85.39
+            "formula error": 13.41,
+            "extracted_values error": 33.33,
+            "calculation error": 21.01,
+            "answer error": 32.25,
+            "formula error conditional": 9.71,
+            "extracted_values error conditional": 26.74,
+            "calculation error conditional": 23.02,
+            "answer error conditional": 45.88
         }
     },
     "overall": {
         "regular expression evaluation": {
-            "average": 33.21,
+            "average": 68.42,
             "std": 0.01,
             "count": 1048
         },
         "llm evaluation": {
-            "raw_average": 24.81,
-            "average": 16.79,
-            "std": 0.01,
+            "raw_average": 63.45,
+            "average": 44.18,
+            "std": 0.02,
             "count": 1048,
-            "formula error": 47.13,
-            "extracted_values error": 14.45,
-            "calculation error": 9.98,
-            "answer error": 28.44,
-            "formula error conditional": 39.22,
-            "extracted_values error conditional": 19.78,
-            "calculation error conditional": 17.03,
-            "answer error conditional": 58.49
+            "formula error": 20.0,
+            "extracted_values error": 23.25,
+            "calculation error": 29.74,
+            "answer error": 27.01,
+            "formula error conditional": 11.16,
+            "extracted_values error conditional": 14.61,
+            "calculation error conditional": 21.89,
+            "answer error conditional": 25.44
         }
     },
-    "input_tokens_average": 984,
-    "output_tokens_average": 210
+    "input_tokens_average": 1038,
+    "output_tokens_average": 155
 }
